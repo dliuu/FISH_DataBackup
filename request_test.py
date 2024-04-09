@@ -1,4 +1,6 @@
 import requests
+import json
+from datetime import datetime
 
 #Utility Functions:
 
@@ -19,6 +21,13 @@ def merge_constraints(key_list, type_list, value_list):
             "value": value_list[i]
         })
     return merged_dicts
+
+def get_datetime():
+    ''' Returns the current day in datetime for file naming
+    '''
+    return datetime.today().strftime('%Y-%m-%d')
+
+#API Calls
 
 def single_GET_request(url:str, **kwargs):
     '''GET call for a single Bubble record. URL needs to contain obj/data_type/unique_id
@@ -42,20 +51,31 @@ def GET_all_objects(url:str, **kwargs):
 
     example usage: GET_all_objects('https://fish-platform.bubbleapps.io/version-test/api/1.1/obj/Loan')
     '''
-    key_list = kwargs.get(key_list)
-    type_list = kwargs.get(type_list)
-    value_list = kwargs.get(value_list)
+    if kwargs:
+        key_list = kwargs.get(key_list)
+        type_list = kwargs.get(type_list)
+        value_list = kwargs.get(value_list)
 
-    constraints = merge_constraints(key_list, type_list, value_list)
+        constraints = merge_constraints(key_list, type_list, value_list)
 
-    if len(constraints) == 0:
-        r = requests.get(url)
-        return r.json()
+        if len(constraints) == 0:
+            r = requests.get(url)
+            return r.json()
 
+        else:
+            url = f"{url}?constraints={constraints}"
+            r = requests.get(url)
+            return r.json()
+    
     else:
-        url = f"{url}?constraints={constraints}"
         r = requests.get(url)
         return r.json()
 
 #__Main__
-print(GET_all_objects('https://fish-platform.bubbleapps.io/version-test/api/1.1/obj/Loan'))
+raw_obj = GET_all_objects('https://fish-platform.bubbleapps.io/version-test/api/1.1/obj/Loan')
+json_obj = json.dumps(raw_obj, indent=4)
+day = get_datetime()
+
+with open(f"{day}-loan-snapshot.json", "w") as outfile:
+    outfile.write(json_obj)
+
