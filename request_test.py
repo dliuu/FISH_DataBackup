@@ -1,6 +1,7 @@
 import requests
 import json
 from datetime import datetime
+import psycopg2
 
 #Utility Functions:
 
@@ -71,11 +72,38 @@ def GET_all_objects(url:str, **kwargs):
         r = requests.get(url)
         return r.json()
 
+
 #__Main__
-raw_obj = GET_all_objects('https://fish-platform.bubbleapps.io/version-test/api/1.1/obj/Loan')
+raw_obj = GET_all_objects('https://fish-platform.bubbleapps.io/version-test/api/1.1/obj/Loan') #modify to fit live version url
 json_obj = json.dumps(raw_obj, indent=4)
 day = get_datetime()
 
-with open(f"{day}-loan-snapshot.json", "w") as outfile:
-    outfile.write(json_obj)
+#with open(f"{day}-loan-snapshot.json", "w") as outfile:
+    #outfile.write(json_obj)
 
+#Write to Postgres
+hostname = 'ls-85eee0d2cc3d8908046ecb29cdfe4e2ddb241ebc.cktchk5fub2f.us-east-1.rds.amazonaws.com'
+username = 'dbmasteruser'
+password = 'oj^2Uv|IXfE~SSS$`C6Zo:[&[1sln]_1'
+database = 'bubble-backup'
+
+try:
+    connection = psycopg2.connect(host=hostname, user=username, password=password, dbname=database)
+    cursor = connection.cursor()
+
+    # SQL query to insert JSON data into a table
+    sql_query = "INSERT INTO loan (jsonstring) VALUES (%s)"
+    cursor.execute(sql_query, (json_obj,))
+
+    # Commit the changes
+    connection.commit()
+    print("Data inserted successfully")
+
+except (Exception, psycopg2.Error) as error:
+    print("Error while connecting to PostgreSQL", error)
+
+finally:
+    if connection:
+        cursor.close()
+        connection.close()
+        print("PostgreSQL connection is closed")
