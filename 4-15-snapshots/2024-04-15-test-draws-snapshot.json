@@ -1,0 +1,435 @@
+{
+    "response": {
+        "cursor": 0,
+        "results": [
+            {
+                "Created By": "admin_user_fish-platform_test",
+                "Created Date": "2024-01-26T15:49:51.257Z",
+                "FeeCharged": 1234,
+                "Modified Date": "2024-01-26T15:49:51.259Z",
+                "Name": "Test 1",
+                "_id": "1706284191257x292706755060702340"
+            },
+            {
+                "Created By": "admin_user_fish-platform_test",
+                "Created Date": "2024-01-26T15:50:04.225Z",
+                "FeeCharged": 12345,
+                "Modified Date": "2024-01-26T15:50:04.227Z",
+                "Name": "Test2",
+                "_id": "1706284204225x639871657153256100"
+            },
+            {
+                "Created By": "1708720325686x498509076243797570",
+                "Created Date": "2024-02-26T20:23:23.672Z",
+                "Detailed Explanation": "dfgdfg",
+                "Insurance": [
+                    "1708978994988x922855409706074100"
+                ],
+                "Modified Date": "2024-02-26T20:23:23.672Z",
+                "Property Photos": [
+                    "1708978989802x509544683920949250"
+                ],
+                "Property Taxes": [
+                    "1708979000256x277271134641061900"
+                ],
+                "Reason": "Construction is not finished",
+                "_id": "1708979002910x563996478156832800"
+            },
+            {
+                "Created By": "1708720325686x498509076243797570",
+                "Created Date": "2024-02-26T20:26:19.663Z",
+                "Detailed Explanation": "dfgdfg",
+                "Insurance": [
+                    "1708979172354x983374114704326700"
+                ],
+                "Modified Date": "2024-02-26T20:49:30.778Z",
+                "Property Photos": [
+                    "1708979166844x657802245367660500"
+                ],
+                "Property Taxes": [
+                    "1708979177319x701322783018188800"
+                ],
+                "Reason": "Need more time to sell",
+                "Status": "Rejected",
+                "_id": "1708979179241x162119703751032830"
+            },
+            {
+                "Created By": "1708979540699x109423674905114060",
+                "Created Date": "2024-02-26T20:51:29.457Z",
+                "Detailed Explanation": "df",
+                "effective date": "2024-02-21T00:00:00.000Z",
+                "Insurance": [],
+                "listed": true,
+                "listing url": "https://www.imdb.com/name/nm8401886/",
+                "Modification Fee": 50,
+                "Modified Date": "2024-02-26T21:50:15.361Z",
+                "New interest": 0.05,
+                "Property Photos": [],
+                "Property Taxes": [],
+                "Reason": "Construction is not finished",
+                "approved Term": 6,
+                "_id": "1708980688772x974288475064369200"
+            },
+            {
+                "Created By": "1708979540699x109423674905114060",
+                "Created Date": "2024-02-26T21:51:04.151Z",
+                "Detailed Explanation": "fgfdg",
+                "effective date": "2024-02-15T00:00:00.000Z",
+                "fee_status": "Fee Unpaid",
+                "fish_id": 1,
+                "Insurance": [],
+                "listed": true,
+                "listing url": "sgsf",
+                "modification details document": "1708996552332x444449798503268350",
+                "Modification Fee": 50,
+                "Modified Date": "2024-02-27T02:10:24.237Z",
+                "New interest": 0.05,
+                "Property Photos": [],
+                "Property Taxes": [],
+                "Reason": "Need more time to sell",
+                "Status": "Rejected",
+                "approved Term": 3,
+                "_id": "1708984263552x618411347266764800"
+            },
+            {
+                "Created By": "1680707392274x494065091257994240",
+                "Created Date": "2024-02-27T00:26:21.242Z",
+                "Detailed Explanation": "dfgdfg",
+                "effective date": "2024-02-27T00:00:00.000Z",
+                "fee_status": "Fee Unpaid",
+                "fish_id": 2,
+                "Insurance": [],
+                "listed": true,
+                "listing url": "dfgdfg",
+                "Modification Fee": 5000,
+                "Modified Date": "2024-02-27T00:26:55.821Z",
+                "New interest": 0.05,
+                "Property Photos": [],
+                "Property Taxes": [],
+                "Reason": "Construction is not finished",
+                "Status": "In Progress",
+                "approved Term": 6,
+                "_id": "1708993580689x300512886705356800"
+            },
+            {
+                "Created By": "1688777752333x948732780392646000",
+                "Created Date": "2024-02-27T02:28:18.330Z",
+                "Detailed Explanation": "dfsfd",
+                "fee_status": "Fee Unpaid",
+                "fish_id": 3,
+                "Insurance": [
+                    "1709000889030x231709999593947140"
+                ],
+                "listed": false,
+                "Modified Date": "2024-02-27T02:28:18.364Z",
+                "Property Photos": [
+                    "1709000882944x285192477129572350"
+                ],
+                "Property Taxes": [
+                    "1709000894378x527181239587438600"
+                ],
+                "Reason": "Construction is not finished",
+                "Status": "Requested",
+                "_id": "1709000897671x876392793639747600"
+            },
+            {
+                "Created By": "1688777752333x948732780392646000",
+                "Created Date": "2024-02-27T02:44:35.140Z",
+                "Detailed Explanation": "dfgdfg",
+                "fee_status": "Fee Unpaid",
+                "fish_id": 4,
+                "Insurance": [
+                    "1709001867930x406794006676897800"
+                ],
+                "listed": false,
+                "Modified Date": "2024-02-27T02:44:35.147Z",
+                "Property Photos": [
+                    "1709001863724x828002580975845400"
+                ],
+                "Property Taxes": [
+                    "1709001873346x977549937203478500"
+                ],
+                "Reason": "Construction is not finished",
+                "Status": "Requested",
+                "_id": "1709001874777x538226726721028100"
+            },
+            {
+                "Created By": "1680707392274x494065091257994240",
+                "Created Date": "2024-02-27T15:56:18.214Z",
+                "Detailed Explanation": "dfdf",
+                "fee_status": "Fee Unpaid",
+                "fish_id": 5,
+                "Insurance": [],
+                "listed": false,
+                "Modified Date": "2024-02-27T16:24:36.041Z",
+                "Property Photos": [],
+                "Property Taxes": [],
+                "Reason": "Construction is not finished",
+                "Status": "Rejected",
+                "_id": "1709049377548x486890800223879200"
+            },
+            {
+                "Created By": "1680707392274x494065091257994240",
+                "Created Date": "2024-02-27T16:24:49.527Z",
+                "Detailed Explanation": "dsfsdf",
+                "effective date": "2024-02-28T00:00:00.000Z",
+                "fee_status": "Fee Unpaid",
+                "fish_id": 6,
+                "Insurance": [],
+                "listed": true,
+                "listing url": "www.w.com",
+                "modification details document": "1709050888738x465400347240955900",
+                "Modification Fee": 5000,
+                "Modified Date": "2024-02-27T16:25:29.475Z",
+                "New interest": 0.05,
+                "Property Photos": [],
+                "Property Taxes": [],
+                "Reason": "Need more time to sell",
+                "requested term": 3,
+                "Status": "Approved",
+                "approved Term": 3,
+                "_id": "1709051088960x666040009377972200"
+            },
+            {
+                "Created By": "1680707392274x494065091257994240",
+                "Created Date": "2024-02-27T16:28:28.581Z",
+                "Detailed Explanation": "fgf",
+                "effective date": "2024-02-29T00:00:00.000Z",
+                "fee_status": "Fee Unpaid",
+                "fish_id": 7,
+                "Insurance": [
+                    "1709051296148x970889750052864000"
+                ],
+                "listed": true,
+                "listing url": "www.w.com",
+                "Modification Fee": 500,
+                "Modified Date": "2024-02-27T16:29:54.141Z",
+                "New interest": 0.05,
+                "Property Photos": [
+                    "1709051291723x272033369754173440"
+                ],
+                "Property Taxes": [
+                    "1709051300245x438959192612536300"
+                ],
+                "Reason": "Need more time to sell",
+                "requested term": 6,
+                "Status": "Rejected",
+                "approved Term": 6,
+                "_id": "1709051308330x341415864680579100"
+            },
+            {
+                "Created By": "1680707392274x494065091257994240",
+                "Created Date": "2024-02-27T16:31:15.234Z",
+                "Detailed Explanation": "xcvcxv",
+                "effective date": "2024-02-23T00:00:00.000Z",
+                "fee_status": "Fee Unpaid",
+                "fish_id": 8,
+                "Insurance": [],
+                "listed": true,
+                "listing url": "cxvxv",
+                "modification details document": "1709052319078x988475435044044800",
+                "Modification Fee": 5000,
+                "Modified Date": "2024-02-27T17:17:48.393Z",
+                "New interest": 0.05,
+                "Property Photos": [],
+                "Property Taxes": [],
+                "Reason": "Need more time to sell",
+                "requested term": 6,
+                "Status": "Approved",
+                "approved Term": 6,
+                "_id": "1709051474596x276252484989616130"
+            },
+            {
+                "Created By": "1680707392274x494065091257994240",
+                "Created Date": "2024-02-27T17:29:31.186Z",
+                "Detailed Explanation": "dsf",
+                "effective date": "2024-02-21T00:00:00.000Z",
+                "fee_status": "Fee Unpaid",
+                "fish_id": 9,
+                "Insurance": [
+                    "1709054963697x613875994459897900"
+                ],
+                "listed": true,
+                "listing url": "sf",
+                "modification details document": "1709052319078x988475435044044800",
+                "Modification Fee": 500,
+                "Modified Date": "2024-02-27T17:31:13.975Z",
+                "New interest": 0.05,
+                "Property Photos": [
+                    "1709054959980x203627182221426700"
+                ],
+                "Property Taxes": [
+                    "1709054967512x401878526922850300"
+                ],
+                "Reason": "Construction is not finished",
+                "requested term": 9,
+                "Status": "Approved",
+                "approved Term": 9,
+                "_id": "1709054970490x346032370628165600"
+            },
+            {
+                "Created By": "1680707392274x494065091257994240",
+                "Created Date": "2024-02-27T17:37:45.113Z",
+                "Detailed Explanation": "dsfsd",
+                "effective date": "2024-02-22T00:00:00.000Z",
+                "fee_status": "Fee Unpaid",
+                "fish_id": 10,
+                "Insurance": [],
+                "listed": false,
+                "modification details document": "1709052319078x988475435044044800",
+                "Modification Fee": 500,
+                "Modified Date": "2024-02-27T17:38:02.406Z",
+                "New interest": 0.05,
+                "Property Photos": [],
+                "Property Taxes": [],
+                "Reason": "Construction is not finished",
+                "requested term": 6,
+                "Status": "Approved",
+                "approved Term": 6,
+                "_id": "1709055464415x840716792236605400"
+            },
+            {
+                "Created By": "1680707392274x494065091257994240",
+                "Created Date": "2024-02-27T17:41:21.825Z",
+                "Detailed Explanation": "fdgdf",
+                "effective date": "2024-02-21T00:00:00.000Z",
+                "fee_status": "Fee Unpaid",
+                "fish_id": 11,
+                "Insurance": [],
+                "listed": false,
+                "modification details document": "1709052319078x988475435044044800",
+                "Modification Fee": 500,
+                "Modified Date": "2024-02-27T17:42:16.739Z",
+                "New interest": 0.05,
+                "Property Photos": [
+                    "1709055679263x388409694242209800"
+                ],
+                "Property Taxes": [],
+                "Reason": "Need more time to sell",
+                "requested term": 6,
+                "Status": "Approved",
+                "approved Term": 6,
+                "_id": "1709055681533x497866131056885760"
+            },
+            {
+                "Created By": "1680707392274x494065091257994240",
+                "Created Date": "2024-02-27T17:45:31.804Z",
+                "Detailed Explanation": "dfgd",
+                "effective date": "2024-02-23T00:00:00.000Z",
+                "fee_status": "Fee Paid",
+                "fish_id": 12,
+                "Insurance": [],
+                "listed": false,
+                "modification details document": "1709052319078x988475435044044800",
+                "Modification Fee": 500,
+                "Modified Date": "2024-02-27T17:46:27.521Z",
+                "New interest": 0.05,
+                "Property Photos": [],
+                "Property Taxes": [],
+                "Reason": "Construction is not finished",
+                "requested term": 9,
+                "Status": "Approved",
+                "approved Term": 9,
+                "_id": "1709055931218x757435636572749800"
+            },
+            {
+                "Created By": "1694612298553x825835366319808400",
+                "Created Date": "2024-03-12T23:26:34.833Z",
+                "Detailed Explanation": "A reeaaallly long detailed explanation for this extension request",
+                "fee_status": "Fee Unpaid",
+                "fish_id": 13,
+                "Insurance": [
+                    "1710285960977x498203963690057700"
+                ],
+                "listed": true,
+                "listing url": "www.gmail.com",
+                "Loan": "1709924128485x989319106329837600",
+                "Modified Date": "2024-03-12T23:26:34.910Z",
+                "Property Photos": [
+                    "1710285908352x298105353399435260",
+                    "1710285923120x599736938068443100",
+                    "1710285935025x690213668509974500",
+                    "1710285950731x844628424612380700"
+                ],
+                "Property Taxes": [
+                    "1710285974081x513258875897249800"
+                ],
+                "Reason": "Test Extension Reason",
+                "requested term": 9,
+                "Status": "Requested",
+                "_id": "1710285993684x955377187803889700"
+            },
+            {
+                "Created By": "1690901146986x391554597499297340",
+                "Created Date": "2024-03-19T11:12:15.209Z",
+                "Detailed Explanation": "I need more time",
+                "fee_status": "Fee Unpaid",
+                "fish_id": 14,
+                "Insurance": [],
+                "listed": false,
+                "Loan": "1710173125632x962050112809074700",
+                "Modified Date": "2024-03-19T14:25:53.783Z",
+                "Property Photos": [],
+                "Property Taxes": [],
+                "Reason": "Construction is not finished",
+                "requested term": 3,
+                "Status": "Rejected",
+                "_id": "1710846733273x904851645384360000"
+            },
+            {
+                "Created By": "1690901146986x391554597499297340",
+                "Created Date": "2024-03-19T14:34:16.668Z",
+                "Detailed Explanation": "More time",
+                "fee_status": "Fee Unpaid",
+                "fish_id": 15,
+                "Insurance": [],
+                "listed": false,
+                "Loan": "1710173125632x962050112809074700",
+                "Modified Date": "2024-03-19T14:34:16.785Z",
+                "Property Photos": [],
+                "Property Taxes": [],
+                "Reason": "Need more time to sell",
+                "requested term": 6,
+                "Status": "Requested",
+                "_id": "1710858855104x136921698531541000"
+            },
+            {
+                "Created By": "1690901146986x391554597499297340",
+                "Created Date": "2024-03-20T15:15:41.353Z",
+                "Detailed Explanation": "New Extension",
+                "fee_status": "Fee Unpaid",
+                "fish_id": 16,
+                "Insurance": [],
+                "listed": false,
+                "Loan": "1710173125632x962050112809074700",
+                "Modified Date": "2024-03-20T15:15:41.430Z",
+                "Property Photos": [],
+                "Property Taxes": [],
+                "Reason": "Construction is not finished",
+                "requested term": 9,
+                "Status": "Requested",
+                "_id": "1710947739647x155457832105541630"
+            },
+            {
+                "Created By": "1690901146986x391554597499297340",
+                "Created Date": "2024-03-26T11:58:14.754Z",
+                "Detailed Explanation": "Need more time",
+                "fee_status": "Fee Unpaid",
+                "fish_id": 17,
+                "Insurance": [],
+                "Loan": "1710173125632x962050112809074700",
+                "Modified Date": "2024-03-26T11:58:14.836Z",
+                "Property Photos": [
+                    "1711454286207x821913728184746000"
+                ],
+                "Property Taxes": [],
+                "Reason": "Need more time to sell",
+                "requested term": 9,
+                "Status": "Requested",
+                "_id": "1711454293089x999109121651769300"
+            }
+        ],
+        "count": 22,
+        "remaining": 0
+    }
+}

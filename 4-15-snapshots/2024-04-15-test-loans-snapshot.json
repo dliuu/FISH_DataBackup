@@ -980,7 +980,6 @@
                 "Created Date": "2024-03-08T19:12:49.064Z",
                 "Modified Date": "2024-04-04T10:41:01.892Z",
                 "Property (FISH)": "1706863474715x902357515730752900",
-                "Company (FISH)": "1712227261031x184742242015510530",
                 "Construction Balance - not used": 0,
                 "Net Wire Interest": 0,
                 "Commitment Fee": 1500,
@@ -998,9 +997,7 @@
                 ],
                 "Estimated Revenue": 0,
                 "Funded Date": "2024-03-08T19:18:20.068Z",
-                "Related Companies": [
-                    "1712227261031x184742242015510530"
-                ],
+                "Related Companies": [],
                 "Contacts": [
                     "1709925327856x166773297940267000",
                     "1710180682201x840864981584969700"
@@ -1272,9 +1269,7 @@
                 ],
                 "Estimated Revenue": 50,
                 "Funded Date": "2024-03-30T04:00:00.000Z",
-                "Related Companies": [
-                    "1712227261031x184742242015510530"
-                ],
+                "Related Companies": [],
                 "Contacts": [
                     "1710764416908x664635869706059800",
                     "1712223902746x965128300008046600",
@@ -1414,9 +1409,7 @@
                 ],
                 "Estimated Revenue": 0,
                 "Funded Date": "2024-03-22T11:21:11.243Z",
-                "Related Companies": [
-                    "1712227261031x184742242015510530"
-                ],
+                "Related Companies": [],
                 "Contacts": [
                     "1711483574999x807484425030598700",
                     "1712152630553x575379465689890800",
@@ -1770,7 +1763,7 @@
                 "Payoff Amount": 40056.67,
                 "Accrued Interest": 346.67,
                 "Interest Only Y/N": true,
-                "Initial Rate Fixed Period": 6,
+                "Fixed Rate Period": 6,
                 "Bathrooms After Renovations": 1,
                 "Bedrooms After Renovations": 2,
                 "BPO Special Instructions": "comps: http://mrislistings.mris.com/DE.asp?ID=81491625361  pics: https://www.washingtoncapitalpartners.com/CRM/photos/?from=crm&typename=nexrm_cloudinarygallery&id=8154dd45-66c2-e811-a96b-000d3a370e23",
@@ -2311,7 +2304,6 @@
                 "Loan Application": "1712311315310x519555110341181400",
                 "Product Type": "Fix & Flip",
                 "Property (FISH)": "1706863478935x335278586770414660",
-                "Company (FISH)": "1712227261031x184742242015510530",
                 "Program Type": "RTL",
                 "Construction Balance - not used": 0,
                 "Net Wire Interest": 0,
@@ -2330,9 +2322,7 @@
                 "Construction Draw Fund Balance": 0,
                 "Estimated Revenue": 39.44,
                 "Funded Date": "2024-04-26T04:00:00.000Z",
-                "Related Companies": [
-                    "1712227261031x184742242015510530"
-                ],
+                "Related Companies": [],
                 "Contacts": [
                     "1712313580795x519106627176759300"
                 ],
@@ -2402,10 +2392,9 @@
             {
                 "Created By": "1665600230072x581022797304211700",
                 "Created Date": "2024-04-05T12:10:04.817Z",
-                "Modified Date": "2024-04-05T12:27:16.398Z",
+                "Modified Date": "2024-04-15T13:21:11.933Z",
                 "Loan Application": "1712318744007x399742646305685500",
                 "Property (FISH)": "1706863559780x748427613039416600",
-                "Company (FISH)": "1712227261031x184742242015510530",
                 "Construction Balance - not used": 0,
                 "Net Wire Interest": 0,
                 "Commitment Fee": 1500,
@@ -2417,12 +2406,16 @@
                 "Current Loan Amount": 259999,
                 "Assignment Fee": 20000,
                 "Construction Draw Fund Balance": 0,
+                "Contact": [
+                    "1709409271540x149751065822328450"
+                ],
                 "Estimated Revenue": 0,
                 "Related Companies": [
-                    "1712227261031x184742242015510530"
+                    "1713181394732x299946326527836160"
                 ],
                 "Contacts": [
-                    "1712318981044x358752489197535200"
+                    "1713181854572x295943922395381760",
+                    "1713187259775x923502065216389100"
                 ],
                 "Primary contact": "1710764289555x596486070620651500",
                 "Borrower": "1710764289555x596486070620651500",
@@ -2430,7 +2423,7 @@
                 "Assignment Fee Credit": 37590,
                 "Borrower Down Payment": 20000,
                 "Construction Budget": 0,
-                "Primary Borrower": "1710764289555x596486070620651500",
+                "Primary Borrower": "1709409271540x149751065822328450",
                 "Property Currently Listed": "no",
                 "Process": "1712319005829x292985210477398900",
                 "Borrower Provided As-Is Bed": 1,
@@ -2631,7 +2624,6 @@
                 "Modified Date": "2024-04-05T14:34:20.308Z",
                 "Loan Application": "1712320252007x417158334996545540",
                 "Property (FISH)": "1706863495703x705449209073311700",
-                "Company (FISH)": "1712227261031x184742242015510530",
                 "Construction Balance - not used": 0,
                 "Net Wire Interest": 3750,
                 "Prepaid Interest Amount": 3750,
@@ -2651,9 +2643,7 @@
                 "Construction Draw Fund Balance": 0,
                 "Estimated Revenue": 60,
                 "Funded Date": "2024-02-11T22:00:00.000Z",
-                "Related Companies": [
-                    "1712227261031x184742242015510530"
-                ],
+                "Related Companies": [],
                 "Contacts": [],
                 "Assignment Fee % Credited": 0.2,
                 "Assignment Fee Credit": 36000,
@@ -2696,38 +2686,44 @@
             {
                 "Created By": "1665600230072x581022797304211700",
                 "Created Date": "2024-04-08T09:08:14.915Z",
-                "Modified Date": "2024-04-08T14:10:34.844Z",
+                "Modified Date": "2024-04-12T10:01:05.834Z",
                 "Loan Application": "1712565974182x676743996405710800",
                 "Product Type": "Fix & Flip",
                 "Property (FISH)": "1706863475472x325169394815323840",
-                "Company (FISH)": "1712227261031x184742242015510530",
                 "Program Type": "RTL",
                 "Construction Balance - not used": 0,
                 "Net Wire Interest": 4333.34,
                 "Prepaid Interest Amount": 4333.34,
+                "Prepaid Interest Balance": 4333.34,
                 "Loan Term": 6,
                 "Loan Rate": "0.1",
                 "Interest Type": "Accrual",
                 "Commitment Fee": 1500,
-                "Net Wire": 173516.66,
+                "Net Wire": 729666.66,
                 "Months of Prepaid Interest": 2,
                 "Valuation Fee": 2000,
                 "Conduit Origination Fee": 4650,
                 "Loan Points": 0.02,
                 "Referral Fee": 1000,
-                "Loan Amount": 232500,
+                "Date of First Payment": "2024-05-01T00:00:00.000Z",
+                "Maturity Date": "2024-10-13T04:00:00.000Z",
+                "Loan Amount": 800000,
                 "Property Purchase Price": 200000,
+                "Current Loan Amount": 720000,
                 "Assignment Fee": 40000,
                 "Cash out Amount": 0,
                 "Closing Date": "2024-04-13T04:00:00.000Z",
-                "Construction Draw Fund Balance": 0,
-                "Estimated Revenue": 46.5,
-                "Related Companies": [
-                    "1712227261031x184742242015510530"
+                "Construction Draw Fund Balance": 50000,
+                "Contact": [
+                    "1710173320668x270193854142480400",
+                    "1710764289555x596486070620651500",
+                    "1709409271538x473604834220145540",
+                    "1709409271540x149751065822328450"
                 ],
-                "Contacts": [
-                    "1712566406579x992612744473870300"
-                ],
+                "Estimated Revenue": 160,
+                "Funded Date": "2024-04-13T04:00:00.000Z",
+                "Related Companies": [],
+                "Contacts": [],
                 "Primary contact": "1710764289555x596486070620651500",
                 "Borrower": "1710764289555x596486070620651500",
                 "Assignment Fee % Credited": 0.15,
@@ -2740,7 +2736,7 @@
                 "Interest Reserve": 4333.34,
                 "Last Sale Amount": 100000,
                 "Other Closing Costs": 0,
-                "Primary Borrower": "1710764289555x596486070620651500",
+                "Primary Borrower": "1710173320668x270193854142480400",
                 "Property Currently Listed": "no",
                 "Previous Purchase Date": "2000-12-01T22:00:00.000Z",
                 "Property List Price": 0,
@@ -2789,11 +2785,13 @@
                 "Months of Interest Reserves": 2,
                 "days_in_year": 365,
                 "company_contact_merges": [],
-                "Testing": false,
+                "current term": 5,
+                "Testing": true,
                 "3rd Party As Is": 200000,
                 "total purchase price": 240000,
                 "Effective Purchase Price": 200000,
                 "Effective Total cost": 250000,
+                "base interest rate": 0.1,
                 "Lease amount": 0,
                 "Lease term": 0,
                 "Retail Construction Amount": 50000,
@@ -2808,7 +2806,7 @@
             {
                 "Created By": "1665600230072x581022797304211700",
                 "Created Date": "2024-04-08T14:19:49.239Z",
-                "Modified Date": "2024-04-09T22:12:49.617Z",
+                "Modified Date": "2024-04-15T11:45:50.697Z",
                 "Loan Application": "1712567686172x991890148124262400",
                 "Product Type": "30 Year Fixed",
                 "Property (FISH)": "1706863477562x617260084437152300",
@@ -2840,10 +2838,11 @@
                 ],
                 "Estimated Revenue": 0,
                 "Funded Date": "2024-04-12T04:00:00.000Z",
-                "Related Companies": [],
+                "Related Companies": [
+                    "1713181394732x299946326527836160"
+                ],
                 "Contacts": [
-                    "1712700387638x395777006043136000",
-                    "1712700768323x891965424841261000"
+                    "1712700387638x395777006043136000"
                 ],
                 "Assignment Fee % Credited": 0,
                 "Assignment Fee Credit": 0,

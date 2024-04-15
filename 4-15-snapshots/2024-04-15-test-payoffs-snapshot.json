@@ -1,0 +1,740 @@
+{
+    "response": {
+        "cursor": 0,
+        "results": [
+            {
+                "\u2699\ufe0f Is developer?": false,
+                "authentication": {
+                    "email": {
+                        "email": "fishtest@fish.app",
+                        "email_confirmed": null
+                    }
+                },
+                "First": "Fish",
+                "\u2699\ufe0f Role": "App admin",
+                "\u2699\ufe0f Date signup completed": "2022-10-12T18:43:48.932Z",
+                "\u2699\ufe0f Signup step": 1,
+                "First Last": "Fish Admin",
+                "\u2699\ufe0f Inactive?": false,
+                "\u2699\ufe0f Signup method": "Email",
+                "user_signed_up": true,
+                "Modified Date": "2024-04-15T16:49:29.809Z",
+                "Created Date": "2022-10-12T18:43:50.072Z",
+                "Slug": "fishadmin",
+                "Profile picture": "//s3.amazonaws.com/appforest_uf/f1616064681355x487741075298849600/user_photo.svg",
+                "Last": "Admin",
+                "Last active": "2024-04-15T16:49:27.476Z",
+                "\u2699\ufe0f Language default": "English (US)",
+                "\u2699\ufe0f Date last verified": "2022-10-12T18:43:48.932Z",
+                "Date of birth": "1866-01-19T05:00:00.000Z",
+                "Phone number (not verified)": "(703) 909-6559",
+                "Experience Level": "Somewhat experienced",
+                "Borrower Past WCP Borrower?": true,
+                "fish_id": 2,
+                "_id": "1665600230072x581022797304211700"
+            },
+            {
+                "\u2699\ufe0f Is developer?": false,
+                "First": "Travis",
+                "\u2699\ufe0f Role": "App admin",
+                "\u2699\ufe0f Date signup completed": "2023-01-24T18:08:52.874Z",
+                "\u2699\ufe0f Signup step": 1,
+                "First Last": "Travis Detwiler",
+                "\u2699\ufe0f Date agreed to terms and privacy docs": "2023-01-24T18:07:54.730Z",
+                "\u2699\ufe0f Inactive?": false,
+                "\u2699\ufe0f Signup method": "email",
+                "authentication": {
+                    "email": {
+                        "email": "tdetwiler@wcp.team",
+                        "email_confirmed": null
+                    }
+                },
+                "user_signed_up": true,
+                "Modified Date": "2024-03-15T07:11:23.443Z",
+                "Created Date": "2023-01-24T18:06:48.448Z",
+                "Slug": "travisdetwiler",
+                "Profile picture": "https://s3.amazonaws.com/appforest_uf/f1616064672353x199687653796903900/user_photo.svg",
+                "Last": "Detwiler",
+                "Last active": "2024-03-15T07:11:13.516Z",
+                "\u2699\ufe0f Language default": "English (US)",
+                "\u2699\ufe0f Date last verified": "2023-01-24T18:08:52.874Z",
+                "fish_id": 52,
+                "_id": "1674583608448x723792839488703600"
+            },
+            {
+                "\u2699\ufe0f Is developer?": false,
+                "First": "Stuart",
+                "\u2699\ufe0f Role": "Borrower",
+                "\u2699\ufe0f Date signup completed": "2023-04-04T18:00:32.216Z",
+                "\u2699\ufe0f Signup step": 2,
+                "First Last": "Stuart Bingham",
+                "\u2699\ufe0f Date agreed to terms and privacy docs": "2023-04-04T18:00:25.327Z",
+                "\u2699\ufe0f Inactive?": false,
+                "\u2699\ufe0f Signup method": "email",
+                "authentication": {
+                    "email": {
+                        "email": "bingham.stuart@gmail.com",
+                        "email_confirmed": null
+                    }
+                },
+                "user_signed_up": true,
+                "Modified Date": "2023-11-16T21:25:04.483Z",
+                "Created Date": "2023-04-04T17:59:25.947Z",
+                "Slug": "stuartbingham",
+                "Profile picture": "https://s3.amazonaws.com/appforest_uf/f1616064672353x199687653796903900/user_photo.svg",
+                "Last": "Bingham",
+                "Last active": "2023-05-25T16:12:38.218Z",
+                "\u2699\ufe0f Language default": "English (US)",
+                "\u2699\ufe0f Date last verified": "2023-04-04T18:00:32.216Z",
+                "Staff - Loan officer?": false,
+                "fish_id": 61,
+                "_id": "1680631165947x160719775712949060"
+            },
+            {
+                "\u2699\ufe0f Is developer?": false,
+                "First": "Danny",
+                "\u2699\ufe0f Role": "App admin",
+                "\u2699\ufe0f Date signup completed": "2023-04-05T15:11:47.464Z",
+                "\u2699\ufe0f Signup step": 1,
+                "First Last": "Danny Liu",
+                "\u2699\ufe0f Date agreed to terms and privacy docs": "2023-04-05T15:11:35.355Z",
+                "\u2699\ufe0f Inactive?": false,
+                "\u2699\ufe0f Signup method": "email",
+                "authentication": {
+                    "email": {
+                        "email": "dannyyliuu@gmail.com",
+                        "email_confirmed": null
+                    }
+                },
+                "user_signed_up": true,
+                "Modified Date": "2024-04-12T17:27:03.644Z",
+                "Created Date": "2023-04-05T15:09:52.274Z",
+                "Slug": "dannyliu",
+                "Profile picture": "//74ed65a3cba6e3c74b57f9a7e3a56901.cdn.bubble.io/f1696387493947x457072065953116900/corr_plot_metrics.png",
+                "Last": "Liu",
+                "Last active": "2024-04-12T17:27:01.326Z",
+                "\u2699\ufe0f Language default": "English (US)",
+                "\u2699\ufe0f Date last verified": "2023-04-05T15:11:47.464Z",
+                "Date of birth": "1990-04-05T04:00:00.000Z",
+                "Phone number (not verified)": "(718) 679-5668",
+                "Teams": [
+                    "1671811248794x508531343017902100"
+                ],
+                "Experience Level": "Very experienced",
+                "Investor onboarding completed?": true,
+                "Borrower Past WCP Borrower?": false,
+                "Staff - Loan officer?": true,
+                "fish_id": 62,
+                "_id": "1680707392274x494065091257994240"
+            },
+            {
+                "\u2699\ufe0f Is developer?": false,
+                "First": "Dongsheng",
+                "\u2699\ufe0f Role": "App admin",
+                "\u2699\ufe0f Date signup completed": "2023-04-05T15:19:54.551Z",
+                "\u2699\ufe0f Signup step": 2,
+                "First Last": "Dongsheng Liu",
+                "\u2699\ufe0f Date agreed to terms and privacy docs": "2023-04-05T15:19:21.617Z",
+                "\u2699\ufe0f Inactive?": false,
+                "\u2699\ufe0f Signup method": "email",
+                "authentication": {
+                    "email": {
+                        "email": "dannyyliuu+1@gmail.com",
+                        "email_confirmed": null
+                    }
+                },
+                "user_signed_up": true,
+                "Modified Date": "2023-11-16T21:25:11.677Z",
+                "Created Date": "2023-04-05T15:18:46.090Z",
+                "Slug": "dongshengliu",
+                "Profile picture": "https://s3.amazonaws.com/appforest_uf/f1616064672353x199687653796903900/user_photo.svg",
+                "Last": "Liu",
+                "Last active": "2023-07-21T18:23:52.554Z",
+                "\u2699\ufe0f Language default": "English (US)",
+                "\u2699\ufe0f Date last verified": "2023-04-05T15:19:54.551Z",
+                "Investor onboarding completed?": true,
+                "Staff - Loan officer?": true,
+                "fish_id": 63,
+                "_id": "1680707926090x878414039771678000"
+            },
+            {
+                "\u2699\ufe0f Is developer?": true,
+                "authentication": {
+                    "email": {
+                        "email": "jared@wcp.team",
+                        "email_confirmed": null
+                    }
+                },
+                "First": "Jared",
+                "\u2699\ufe0f Role": "App admin",
+                "\u2699\ufe0f Date signup completed": "2023-07-06T16:21:32.669Z",
+                "\u2699\ufe0f Signup step": 1,
+                "First Last": "Jared F",
+                "\u2699\ufe0f Date agreed to terms and privacy docs": "2023-07-06T16:21:22.559Z",
+                "\u2699\ufe0f Inactive?": false,
+                "\u2699\ufe0f Signup method": "email",
+                "user_signed_up": true,
+                "Modified Date": "2024-03-06T20:56:38.278Z",
+                "Created Date": "2023-07-06T16:20:58.289Z",
+                "Slug": "jaredb",
+                "Profile picture": "https://s3.amazonaws.com/appforest_uf/f1616064672353x199687653796903900/user_photo.svg",
+                "Last": "F",
+                "Last active": "2023-08-13T19:47:49.421Z",
+                "\u2699\ufe0f Language default": "English (US)",
+                "\u2699\ufe0f Date last verified": "2023-07-06T16:21:32.669Z",
+                "Teams": [],
+                "Contacts Access": "Edit Sensitive",
+                "Staff - Loan officer?": false,
+                "fish_id": 65,
+                "_id": "1688660458289x410936887241683000"
+            },
+            {
+                "\u2699\ufe0f Is developer?": false,
+                "First": "Pablo",
+                "\u2699\ufe0f Role": "Borrower",
+                "\u2699\ufe0f Date signup completed": "2023-07-06T16:28:04.651Z",
+                "\u2699\ufe0f Signup step": 2,
+                "First Last": "Pablo Test",
+                "\u2699\ufe0f Date agreed to terms and privacy docs": "2023-07-06T16:27:58.932Z",
+                "\u2699\ufe0f Inactive?": false,
+                "\u2699\ufe0f Signup method": "email",
+                "authentication": {
+                    "email": {
+                        "email": "pablo@proveoautomation.com",
+                        "email_confirmed": null
+                    }
+                },
+                "user_signed_up": true,
+                "Modified Date": "2023-11-16T21:25:25.660Z",
+                "Created Date": "2023-07-06T16:27:29.636Z",
+                "Slug": "pablotest",
+                "Profile picture": "https://s3.amazonaws.com/appforest_uf/f1616064672353x199687653796903900/user_photo.svg",
+                "Last": "Test",
+                "Last active": "2023-07-06T16:28:09.611Z",
+                "\u2699\ufe0f Language default": "English (US)",
+                "\u2699\ufe0f Date last verified": "2023-07-06T16:28:04.651Z",
+                "Staff - Loan officer?": false,
+                "fish_id": 68,
+                "_id": "1688660849636x450098315577763400"
+            },
+            {
+                "\u2699\ufe0f Is developer?": true,
+                "First": "Terri",
+                "\u2699\ufe0f Role": "App admin",
+                "\u2699\ufe0f Date signup completed": "2023-07-01T17:01:00.000Z",
+                "First Last": "Terri Thampan",
+                "\u2699\ufe0f Inactive?": false,
+                "\u2699\ufe0f Signup method": "email",
+                "authentication": {
+                    "email": {
+                        "email": "tthampan@wcp.team",
+                        "email_confirmed": null
+                    }
+                },
+                "user_signed_up": true,
+                "Modified Date": "2024-04-15T15:28:13.764Z",
+                "Created Date": "2023-07-07T19:10:44.045Z",
+                "Last": "Thampan",
+                "Last active": "2024-04-15T15:28:10.102Z",
+                "\u2699\ufe0f Date last verified": "2023-07-01T05:01:00.000Z",
+                "Investor onboarding completed?": true,
+                "fish_id": 69,
+                "_id": "1688757044045x851625502367519000"
+            },
+            {
+                "\u2699\ufe0f Is developer?": false,
+                "First": "Nicholas",
+                "\u2699\ufe0f Role": "Borrower",
+                "\u2699\ufe0f Date signup completed": "2023-07-13T16:21:33.979Z",
+                "\u2699\ufe0f Signup step": 2,
+                "First Last": "Nicholas Perez",
+                "\u2699\ufe0f Date agreed to terms and privacy docs": "2023-07-13T16:21:26.079Z",
+                "\u2699\ufe0f Inactive?": false,
+                "\u2699\ufe0f Signup method": "email",
+                "authentication": {
+                    "email": {
+                        "email": "nico@proveoautomation.com",
+                        "email_confirmed": null
+                    }
+                },
+                "user_signed_up": true,
+                "Modified Date": "2024-03-15T13:41:31.642Z",
+                "Created Date": "2023-07-13T16:16:43.065Z",
+                "Slug": "nicholasperez",
+                "Profile picture": "https://s3.amazonaws.com/appforest_uf/f1616064672353x199687653796903900/user_photo.svg",
+                "Last": "Perez",
+                "Last active": "2024-03-15T13:41:27.180Z",
+                "\u2699\ufe0f Language default": "English (US)",
+                "\u2699\ufe0f Date last verified": "2023-07-13T16:21:33.979Z",
+                "Staff - Loan officer?": false,
+                "fish_id": 78,
+                "_id": "1689265003065x449402762825420000"
+            },
+            {
+                "\u2699\ufe0f Is developer?": false,
+                "First": "Misha",
+                "\u2699\ufe0f Role": "Borrower",
+                "\u2699\ufe0f Date signup completed": "2023-07-13T16:21:35.382Z",
+                "\u2699\ufe0f Signup step": 1,
+                "First Last": "Misha Arkhypov",
+                "\u2699\ufe0f Date agreed to terms and privacy docs": "2023-07-13T16:21:25.987Z",
+                "\u2699\ufe0f Inactive?": false,
+                "\u2699\ufe0f Signup method": "email",
+                "authentication": {
+                    "email": {
+                        "email": "misha.arhipov133@gmail.com",
+                        "email_confirmed": null
+                    }
+                },
+                "user_signed_up": true,
+                "Modified Date": "2023-11-16T21:26:00.182Z",
+                "Created Date": "2023-07-13T16:20:18.527Z",
+                "Slug": "mishaarkhypov",
+                "Profile picture": "https://s3.amazonaws.com/appforest_uf/f1616064672353x199687653796903900/user_photo.svg",
+                "Last": "Arkhypov",
+                "Last active": "2023-10-13T16:44:09.897Z",
+                "\u2699\ufe0f Language default": "English (US)",
+                "\u2699\ufe0f Date last verified": "2023-07-13T16:21:35.382Z",
+                "Date of birth": "1965-07-15T21:00:00.000Z",
+                "Phone number (not verified)": "(215) 232-9874",
+                "Experience Level": "Very experienced",
+                "Borrower Past WCP Borrower?": false,
+                "Staff - Loan officer?": false,
+                "fish_id": 79,
+                "_id": "1689265218527x905738367129303300"
+            },
+            {
+                "First": "Tammy",
+                "\u2699\ufe0f Role": "App admin",
+                "First Last": "Tammy Batubo",
+                "\u2699\ufe0f Inactive?": false,
+                "authentication": {
+                    "email": {
+                        "email": "tammy@proveoautomation.com",
+                        "email_confirmed": null
+                    }
+                },
+                "user_signed_up": true,
+                "Modified Date": "2024-04-15T13:16:39.724Z",
+                "Created Date": "2023-08-01T14:45:46.986Z",
+                "Last": "Batubo",
+                "Last active": "2024-04-15T13:16:22.085Z",
+                "\u2699\ufe0f Date last verified": "2022-12-01T21:23:00.000Z",
+                "Staff - Loan officer?": true,
+                "fish_id": 82,
+                "_id": "1690901146986x391554597499297340"
+            },
+            {
+                "\u2699\ufe0f Is developer?": false,
+                "First": "Terri",
+                "\u2699\ufe0f Role": "Borrower",
+                "\u2699\ufe0f Date signup completed": "2023-09-13T13:19:29.495Z",
+                "\u2699\ufe0f Signup step": 2,
+                "First Last": "Terri Thampan",
+                "\u2699\ufe0f Date agreed to terms and privacy docs": "2023-09-13T13:19:20.584Z",
+                "\u2699\ufe0f Inactive?": false,
+                "\u2699\ufe0f Signup method": "email",
+                "authentication": {
+                    "email": {
+                        "email": "territhampan@gmail.com",
+                        "email_confirmed": null
+                    }
+                },
+                "user_signed_up": true,
+                "Modified Date": "2024-04-02T15:28:52.871Z",
+                "Created Date": "2023-09-13T13:16:56.903Z",
+                "Slug": "territhampan",
+                "Profile picture": "https://s3.amazonaws.com/appforest_uf/f1616064672353x199687653796903900/user_photo.svg",
+                "Last": "Thampan",
+                "Last active": "2024-04-02T15:28:52.503Z",
+                "\u2699\ufe0f Language default": "English (US)",
+                "\u2699\ufe0f Date last verified": "2023-09-13T13:19:29.495Z",
+                "Staff - Loan officer?": false,
+                "fish_id": 94,
+                "_id": "1694611016903x349359601789247940"
+            },
+            {
+                "\u2699\ufe0f Is developer?": false,
+                "First": "Joe",
+                "\u2699\ufe0f Role": "Borrower",
+                "\u2699\ufe0f Date signup completed": "2023-09-13T13:36:09.340Z",
+                "\u2699\ufe0f Signup step": 2,
+                "First Last": "Joe Zhao",
+                "\u2699\ufe0f Date agreed to terms and privacy docs": "2023-09-13T13:35:58.693Z",
+                "\u2699\ufe0f Inactive?": false,
+                "\u2699\ufe0f Signup method": "email",
+                "authentication": {
+                    "email": {
+                        "email": "joezhao4865@gmail.com",
+                        "email_confirmed": null
+                    }
+                },
+                "user_signed_up": true,
+                "Modified Date": "2024-03-14T15:11:22.238Z",
+                "Created Date": "2023-09-13T13:34:48.777Z",
+                "Slug": "joezhao",
+                "Profile picture": "https://s3.amazonaws.com/appforest_uf/f1616064672353x199687653796903900/user_photo.svg",
+                "Last": "Zhao",
+                "Last active": "2024-03-14T15:11:21.883Z",
+                "\u2699\ufe0f Language default": "English (US)",
+                "\u2699\ufe0f Date last verified": "2023-09-13T13:36:09.340Z",
+                "Staff - Loan officer?": false,
+                "fish_id": 95,
+                "_id": "1694612088777x725174546566075500"
+            },
+            {
+                "\u2699\ufe0f Is developer?": false,
+                "First": "Terri",
+                "\u2699\ufe0f Role": "Borrower",
+                "\u2699\ufe0f Date signup completed": "2023-09-13T15:05:19.940Z",
+                "\u2699\ufe0f Signup step": 2,
+                "First Last": "Terri T",
+                "\u2699\ufe0f Date agreed to terms and privacy docs": "2023-09-13T15:05:09.909Z",
+                "\u2699\ufe0f Inactive?": false,
+                "\u2699\ufe0f Signup method": "email",
+                "authentication": {
+                    "email": {
+                        "email": "territhampan+1@gmail.com",
+                        "email_confirmed": null
+                    }
+                },
+                "user_signed_up": true,
+                "Modified Date": "2024-04-09T18:04:12.795Z",
+                "Created Date": "2023-09-13T13:38:18.553Z",
+                "Slug": "territ",
+                "Profile picture": "https://s3.amazonaws.com/appforest_uf/f1616064672353x199687653796903900/user_photo.svg",
+                "Last": "T",
+                "Last active": "2024-04-09T18:04:11.095Z",
+                "\u2699\ufe0f Language default": "English (US)",
+                "\u2699\ufe0f Date last verified": "2023-09-13T15:05:19.940Z",
+                "Staff - Loan officer?": false,
+                "fish_id": 96,
+                "_id": "1694612298553x825835366319808400"
+            },
+            {
+                "\u2699\ufe0f Is developer?": false,
+                "First": "Josh",
+                "\u2699\ufe0f Role": "Borrower",
+                "\u2699\ufe0f Date signup completed": "2024-02-05T17:09:03.642Z",
+                "\u2699\ufe0f Signup step": 1,
+                "First Last": "Josh Klein",
+                "\u2699\ufe0f Inactive?": false,
+                "\u2699\ufe0f Signup method": "Email",
+                "authentication": {
+                    "email": {
+                        "email": "yehoshua.klein6+ksdjksdj@gmail.com",
+                        "email_confirmed": null
+                    }
+                },
+                "user_signed_up": true,
+                "Modified Date": "2024-03-13T15:29:35.892Z",
+                "Created Date": "2024-02-05T17:09:04.668Z",
+                "Profile picture": "//s3.amazonaws.com/appforest_uf/f1616064681355x487741075298849600/user_photo.svg",
+                "Last": "Klein",
+                "Last active": "2024-03-13T15:29:34.974Z",
+                "\u2699\ufe0f Language default": "English (US)",
+                "\u2699\ufe0f Date last verified": "2024-02-05T17:09:03.642Z",
+                "Teams": [],
+                "Invitation date": "2024-02-05T17:09:03.642Z",
+                "Staff - Loan officer?": false,
+                "fish_id": 2900,
+                "_id": "1707152944667x941400309081244800"
+            },
+            {
+                "\u2699\ufe0f Is developer?": false,
+                "First": "Robert",
+                "\u2699\ufe0f Role": "Lender",
+                "\u2699\ufe0f Date signup completed": "2024-02-05T17:16:58.044Z",
+                "\u2699\ufe0f Signup step": 1,
+                "First Last": "Robert Jacobsen",
+                "\u2699\ufe0f Inactive?": false,
+                "\u2699\ufe0f Signup method": "Email",
+                "authentication": {
+                    "email": {
+                        "email": "yehoshua.klein6+skdjksdjksjd@gmail.com",
+                        "email_confirmed": null
+                    }
+                },
+                "user_signed_up": true,
+                "Modified Date": "2024-03-06T20:47:56.833Z",
+                "Created Date": "2024-02-05T17:16:58.329Z",
+                "Profile picture": "//s3.amazonaws.com/appforest_uf/f1616064681355x487741075298849600/user_photo.svg",
+                "Last": "Jacobsen",
+                "Last active": "2024-03-06T16:00:44.516Z",
+                "\u2699\ufe0f Language default": "English (US)",
+                "\u2699\ufe0f Date last verified": "2024-02-05T17:16:58.044Z",
+                "Teams": [
+                    "1673405822975x984186030587641900"
+                ],
+                "Invitation date": "2024-02-05T17:16:58.044Z",
+                "Staff - Loan officer?": false,
+                "fish_id": 2901,
+                "_id": "1707153418329x908451210334300800"
+            },
+            {
+                "\u2699\ufe0f Is developer?": false,
+                "First": "Daniel",
+                "\u2699\ufe0f Role": "App admin",
+                "\u2699\ufe0f Date signup completed": "2024-03-06T20:49:07.000Z",
+                "\u2699\ufe0f Signup step": 1,
+                "First Last": "Daniel Huertas",
+                "\u2699\ufe0f Inactive?": false,
+                "\u2699\ufe0f Signup method": "Email",
+                "authentication": {
+                    "email": {
+                        "email": "daniel@wcp.team",
+                        "email_confirmed": null
+                    }
+                },
+                "user_signed_up": true,
+                "Modified Date": "2024-03-06T20:49:28.078Z",
+                "Created Date": "2024-03-06T20:49:07.370Z",
+                "Profile picture": "//s3.amazonaws.com/appforest_uf/f1616064681355x487741075298849600/user_photo.svg",
+                "Last": "Huertas",
+                "\u2699\ufe0f Language default": "English (US)",
+                "\u2699\ufe0f Date last verified": "2024-03-06T20:49:07.000Z",
+                "Teams": [],
+                "Invitation date": "2024-03-06T20:49:07.000Z",
+                "Staff - Loan officer?": false,
+                "fish_id": 3411,
+                "_id": "1709758147370x873918312704018800"
+            },
+            {
+                "\u2699\ufe0f Is developer?": false,
+                "First": "Robert",
+                "\u2699\ufe0f Role": "Lender",
+                "\u2699\ufe0f Date signup completed": "2024-03-06T20:49:47.136Z",
+                "\u2699\ufe0f Signup step": 1,
+                "First Last": "Robert Jacobsen",
+                "\u2699\ufe0f Inactive?": false,
+                "\u2699\ufe0f Signup method": "Email",
+                "authentication": {
+                    "email": {
+                        "email": "rjacobsen@wcp.team",
+                        "email_confirmed": null
+                    }
+                },
+                "user_signed_up": true,
+                "Modified Date": "2024-03-06T20:49:48.886Z",
+                "Created Date": "2024-03-06T20:49:47.522Z",
+                "Profile picture": "//s3.amazonaws.com/appforest_uf/f1616064681355x487741075298849600/user_photo.svg",
+                "Last": "Jacobsen",
+                "\u2699\ufe0f Language default": "English (US)",
+                "\u2699\ufe0f Date last verified": "2024-03-06T20:49:47.136Z",
+                "Teams": [
+                    "1673405822975x984186030587641900"
+                ],
+                "Invitation date": "2024-03-06T20:49:47.136Z",
+                "Staff - Loan officer?": false,
+                "fish_id": 3412,
+                "_id": "1709758187522x485146623616565800"
+            },
+            {
+                "\u2699\ufe0f Is developer?": false,
+                "First": "Mo",
+                "\u2699\ufe0f Role": "Lender",
+                "\u2699\ufe0f Date signup completed": "2024-03-06T20:50:32.251Z",
+                "\u2699\ufe0f Signup step": 1,
+                "First Last": "Mo Bilal",
+                "\u2699\ufe0f Inactive?": false,
+                "\u2699\ufe0f Signup method": "Email",
+                "authentication": {
+                    "email": {
+                        "email": "bilal@wcp.team",
+                        "email_confirmed": null
+                    }
+                },
+                "user_signed_up": true,
+                "Modified Date": "2024-03-06T20:50:34.005Z",
+                "Created Date": "2024-03-06T20:50:32.592Z",
+                "Profile picture": "//s3.amazonaws.com/appforest_uf/f1616064681355x487741075298849600/user_photo.svg",
+                "Last": "Bilal",
+                "\u2699\ufe0f Language default": "English (US)",
+                "\u2699\ufe0f Date last verified": "2024-03-06T20:50:32.251Z",
+                "Teams": [
+                    "1671811242945x205041485930823700"
+                ],
+                "Invitation date": "2024-03-06T20:50:32.251Z",
+                "Staff - Loan officer?": false,
+                "fish_id": 3413,
+                "_id": "1709758232592x521239192010392260"
+            },
+            {
+                "\u2699\ufe0f Is developer?": false,
+                "First": "Grant",
+                "\u2699\ufe0f Role": "Lender",
+                "\u2699\ufe0f Date signup completed": "2024-03-06T20:52:35.905Z",
+                "\u2699\ufe0f Signup step": 1,
+                "First Last": "Grant Sears",
+                "\u2699\ufe0f Inactive?": false,
+                "\u2699\ufe0f Signup method": "Email",
+                "authentication": {
+                    "email": {
+                        "email": "gsears@wcp.team",
+                        "email_confirmed": null
+                    }
+                },
+                "user_signed_up": true,
+                "Modified Date": "2024-03-06T20:52:37.551Z",
+                "Created Date": "2024-03-06T20:52:36.626Z",
+                "Profile picture": "//s3.amazonaws.com/appforest_uf/f1616064681355x487741075298849600/user_photo.svg",
+                "Last": "Sears",
+                "\u2699\ufe0f Language default": "English (US)",
+                "\u2699\ufe0f Date last verified": "2024-03-06T20:52:35.905Z",
+                "Teams": [
+                    "1673404328700x395764180543602700"
+                ],
+                "Invitation date": "2024-03-06T20:52:35.905Z",
+                "Staff - Loan officer?": false,
+                "fish_id": 3414,
+                "_id": "1709758356626x553734238462541900"
+            },
+            {
+                "\u2699\ufe0f Is developer?": false,
+                "First": "Roxana ",
+                "\u2699\ufe0f Role": "Lender",
+                "\u2699\ufe0f Date signup completed": "2024-03-06T20:54:16.902Z",
+                "\u2699\ufe0f Signup step": 1,
+                "First Last": "Roxana  Cordova",
+                "\u2699\ufe0f Inactive?": false,
+                "\u2699\ufe0f Signup method": "Email",
+                "authentication": {
+                    "email": {
+                        "email": "rcordova@wcp.team",
+                        "email_confirmed": null
+                    }
+                },
+                "user_signed_up": true,
+                "Modified Date": "2024-03-06T20:54:18.363Z",
+                "Created Date": "2024-03-06T20:54:17.432Z",
+                "Profile picture": "//s3.amazonaws.com/appforest_uf/f1616064681355x487741075298849600/user_photo.svg",
+                "Last": "Cordova",
+                "\u2699\ufe0f Language default": "English (US)",
+                "\u2699\ufe0f Date last verified": "2024-03-06T20:54:16.902Z",
+                "Teams": [
+                    "1709758415935x749247704775786500"
+                ],
+                "Invitation date": "2024-03-06T20:54:16.902Z",
+                "Staff - Loan officer?": false,
+                "fish_id": 3415,
+                "_id": "1709758457432x814144805556451300"
+            },
+            {
+                "\u2699\ufe0f Is developer?": false,
+                "First": "Chris ",
+                "\u2699\ufe0f Role": "Lender",
+                "\u2699\ufe0f Date signup completed": "2024-03-06T20:54:57.946Z",
+                "\u2699\ufe0f Signup step": 1,
+                "First Last": "Chris  Campos",
+                "\u2699\ufe0f Inactive?": false,
+                "\u2699\ufe0f Signup method": "Email",
+                "authentication": {
+                    "email": {
+                        "email": "ccampos@wcp.team",
+                        "email_confirmed": null
+                    }
+                },
+                "user_signed_up": true,
+                "Modified Date": "2024-03-15T13:52:23.906Z",
+                "Created Date": "2024-03-06T20:54:58.286Z",
+                "Profile picture": "//s3.amazonaws.com/appforest_uf/f1616064681355x487741075298849600/user_photo.svg",
+                "Last": "Campos",
+                "Last active": "2024-03-15T13:52:21.601Z",
+                "\u2699\ufe0f Language default": "English (US)",
+                "\u2699\ufe0f Date last verified": "2024-03-06T20:54:57.946Z",
+                "Teams": [
+                    "1709758415935x749247704775786500"
+                ],
+                "Invitation date": "2024-03-06T20:54:57.946Z",
+                "Staff - Loan officer?": false,
+                "fish_id": 3416,
+                "_id": "1709758498286x436234206800291300"
+            },
+            {
+                "\u2699\ufe0f Is developer?": false,
+                "First": "Alexander",
+                "\u2699\ufe0f Role": "App admin",
+                "\u2699\ufe0f Date signup completed": "2024-03-06T21:37:01.237Z",
+                "\u2699\ufe0f Signup step": 1,
+                "First Last": "Alexander Lisnyansky",
+                "\u2699\ufe0f Inactive?": false,
+                "\u2699\ufe0f Signup method": "Email",
+                "authentication": {
+                    "email": {
+                        "email": "alexander+1@proveoautomation.com",
+                        "email_confirmed": null
+                    }
+                },
+                "user_signed_up": true,
+                "Modified Date": "2024-04-15T11:33:24.059Z",
+                "Created Date": "2024-03-06T21:37:01.592Z",
+                "Profile picture": "//s3.amazonaws.com/appforest_uf/f1616064681355x487741075298849600/user_photo.svg",
+                "Last": "Lisnyansky",
+                "Last active": "2024-04-15T11:33:16.696Z",
+                "\u2699\ufe0f Language default": "English (US)",
+                "\u2699\ufe0f Date last verified": "2024-03-06T21:37:01.237Z",
+                "Teams": [],
+                "Invitation date": "2024-03-06T21:37:01.237Z",
+                "Staff - Loan officer?": false,
+                "fish_id": 3417,
+                "_id": "1709761021592x444224972807557800"
+            },
+            {
+                "\u2699\ufe0f Is developer?": false,
+                "First": "Alexander",
+                "\u2699\ufe0f Role": "Borrower",
+                "\u2699\ufe0f Date signup completed": "2024-03-18T12:18:09.601Z",
+                "\u2699\ufe0f Signup step": 2,
+                "First Last": "Alexander Superborrower",
+                "\u2699\ufe0f Date agreed to terms and privacy docs": "2024-03-18T12:17:52.035Z",
+                "\u2699\ufe0f Inactive?": false,
+                "\u2699\ufe0f Signup method": "email",
+                "authentication": {
+                    "email": {
+                        "email": "alexander+bp@proveoautomation.com",
+                        "email_confirmed": null
+                    }
+                },
+                "user_signed_up": true,
+                "Modified Date": "2024-03-28T13:43:59.268Z",
+                "Created Date": "2024-03-18T12:17:13.647Z",
+                "Slug": "alexandersuperborrower",
+                "Profile picture": "https://s3.amazonaws.com/appforest_uf/f1616064672353x199687653796903900/user_photo.svg",
+                "Last": "Superborrower",
+                "Last active": "2024-03-28T13:43:58.718Z",
+                "\u2699\ufe0f Language default": "English (US)",
+                "\u2699\ufe0f Date last verified": "2024-03-18T12:18:09.601Z",
+                "Staff - Loan officer?": false,
+                "contact": "1710764289555x596486070620651500",
+                "fish_id": 3484,
+                "_id": "1710764233647x172931103771765800"
+            },
+            {
+                "\u2699\ufe0f Date email verified": "2023-12-01T06:01:00.000Z",
+                "First": "Danny (Staff)",
+                "\u2699\ufe0f Role": "Lender",
+                "\u2699\ufe0f Date signup completed": "2023-12-01T06:01:00.000Z",
+                "First Last": "Danny (Staff) Liu",
+                "\u2699\ufe0f Inactive?": false,
+                "authentication": {
+                    "email": {
+                        "email": "dannyyliuu+10@gmail.com",
+                        "email_confirmed": null
+                    }
+                },
+                "user_signed_up": true,
+                "Modified Date": "2024-04-03T16:20:52.836Z",
+                "Created Date": "2024-03-19T19:31:38.144Z",
+                "Profile picture": "//74ed65a3cba6e3c74b57f9a7e3a56901.cdn.bubble.io/f1710877057779x805194878839542700/dolphin1.jpeg",
+                "Last": "Liu",
+                "Last active": "2024-04-03T16:20:49.717Z",
+                "\u2699\ufe0f Language default": "English (US)",
+                "\u2699\ufe0f Date last verified": "2023-12-01T06:01:00.000Z",
+                "fish_id": 3497,
+                "_id": "1710876698144x682139000009673200"
+            }
+        ],
+        "count": 25,
+        "remaining": 0
+    }
+}
