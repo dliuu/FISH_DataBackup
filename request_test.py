@@ -4,6 +4,11 @@ from datetime import datetime
 import psycopg2
 from requests.auth import HTTPBasicAuth
 
+import sqlalchemy
+from sqlalchemy import create_engine, Column, Integer, String, JSON
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import sessionmaker
+
 #Utility Functions:
 
 def merge_constraints(key_list, type_list, value_list):
@@ -110,6 +115,48 @@ def write_to_file(url:str, obj:str, api_type:str, filename:str):
     with open(f"{day}-{filename}.json", "w") as outfile:
         outfile.write(json_obj)
 
+def write_snapshot_files(url:str):
+    '''Takes  an API endpoint URL and makes separate calls for each object type in the snapshot.
+
+    Example usage: write_snapshot_files(url)
+    '''
+    #Loan
+    write_to_file(url=url, obj='Loan', api_type='all', filename='test-loans-snapshot')
+
+    #Loan Application
+    write_to_file(url=url, obj='Loan Application', api_type='all', filename='test-loan-applications-snapshot')
+
+    #(FISH) Contact
+    write_to_file(url=url, obj='(FISH) Contact', api_type='all', filename='test-contacts-snapshot')
+
+    #(FISH) Company
+    write_to_file(url=url, obj='(FISH) Company', api_type='all', filename='test-companies-snapshot')
+
+    #(FISH) Property
+    write_to_file(url=url, obj='(FISH) Property', api_type='all', filename='test-properties-snapshot')
+
+    #(FISH) Payment
+    write_to_file(url=url, obj='(FISH) Payments', api_type='all', filename='test-payments-snapshot')
+
+    #(FISH) Funding
+    write_to_file(url=url, obj='(FISH) Funding', api_type='all', filename='test-funding-snapshot')
+
+    #(FISH) Disbursement_new
+    write_to_file(url=url, obj='(FISH) Disbursement_new', api_type='all', filename='test-disbursements-snapshot')
+
+    #(FISH)_Draw
+    write_to_file(url=url, obj='(FISH)_Draw', api_type='all', filename='test-draws-snapshot')
+
+    #Loan Extension
+    write_to_file(url=url, obj='Loan Extension', api_type='all', filename='test-draws-snapshot')
+
+    #Loan Payoff
+    write_to_file(url=url, obj='Loan Payoff', api_type='all', filename='test-payoffs-snapshot')
+
+    #User
+    write_to_file(url=url, obj='User', api_type='all', filename='test-payoffs-snapshot')
+
+
 
 #Write to Postgres
 def write_postgres(hostname:str, username:str, password:str, database:str, json_list:str):
@@ -117,11 +164,17 @@ def write_postgres(hostname:str, username:str, password:str, database:str, json_
         connection = psycopg2.connect(host=hostname, user=username, password=password, dbname=database)
         cursor = connection.cursor()
 
+        results = json.loads(json_list)["response"]["results"]
+
         # SQL query to insert JSON data into a table
-        for data in json_list:
+        for data in results:
             print('Posting JSON object...')
             print(data)
             json_string = json.dumps(data)
+
+            print('JSON string: ')
+            print(json_string)
+
             sql_query = "INSERT INTO loan (jsonstring) VALUES (%s)"
             cursor.execute(sql_query, (json_string,))
 
@@ -138,52 +191,71 @@ def write_postgres(hostname:str, username:str, password:str, database:str, json_
             connection.close()
             print("PostgreSQL connection is closed")
 
+def format_json_as_string(json_obj):
+    # Create a list of key-value pairs in the desired format
+    formatted_pairs = [f"{key}: {value}" for key, value in json_obj.items()]
+
+    # Join the pairs with commas and enclose in curly braces
+    formatted_string = "{" + ", ".join(formatted_pairs) + "}"
+
+    return formatted_string
+
+
+Base = declarative_base()
+
+class Loan(Base):
+    __tablename__ = 'loan'
+    id = Column(Integer, primary_key=True)
+    jsonstring = Column(JSON)
+
+
+def write_postgres_sqlalchemy(hostname: str, username: str, password: str, database: str, json_list: str):
+    try:
+        # Create an SQLAlchemy engine
+        engine = create_engine(f'postgresql://{username}:{password}@{hostname}/{database}')
+        Base.metadata.create_all(engine)
+
+        # Create a session
+        Session = sessionmaker(bind=engine)
+        session = Session()
+
+        results = json.loads(json_list)["response"]["results"]
+
+        print("Extracted data from json_list:")
+        for data in results:
+            print(format_json_as_string(data))
+
+        # Insert JSON data into the 'loan' table
+        for data in results:
+            #json_string = json.dumps(data)
+            processed_json_string = format_json_as_string(data)
+            loan_entry = Loan(jsonstring=processed_json_string)
+            session.add(loan_entry)
+
+        # Commit the changes
+        session.commit()
+        print("Data inserted successfully")
+
+    except Exception as error:
+        print("Error while connecting to PostgreSQL:", error)
+
+    finally:
+        Session = sessionmaker(bind=engine)
+        session = Session()
+        session.close()
+        print("PostgreSQL connection is closed")
 
 #__Main__
 
+
 #Test Space
-raw_json = GET_all_objects('https://fish-platform.bubbleapps.io/version-test/api/1.1/obj', '(FISH) Funding')
+raw_json = GET_all_objects('https://fish-platform.bubbleapps.io/version-test/api/1.1/obj', 'Loan')
 processed_json = json.dumps(raw_json)
-print(processed_json)
+
 
 #Write to File
 url = 'https://fish-platform.bubbleapps.io/version-test/api/1.1/obj'
-
-#Loan
-write_to_file(url=url, obj='Loan', api_type='all', filename='test-loans-snapshot')
-
-#Loan Application
-write_to_file(url=url, obj='Loan Application', api_type='all', filename='test-loan-applications-snapshot')
-
-#(FISH) Contact
-write_to_file(url=url, obj='(FISH) Contact', api_type='all', filename='test-contacts-snapshot')
-
-#(FISH) Company
-write_to_file(url=url, obj='(FISH) Company', api_type='all', filename='test-companies-snapshot')
-
-#(FISH) Property
-write_to_file(url=url, obj='(FISH) Property', api_type='all', filename='test-properties-snapshot')
-
-#(FISH) Payment
-write_to_file(url=url, obj='(FISH) Payments', api_type='all', filename='test-payments-snapshot')
-
-#(FISH) Funding
-write_to_file(url=url, obj='(FISH) Funding', api_type='all', filename='test-funding-snapshot')
-
-#(FISH) Disbursement_new
-write_to_file(url=url, obj='(FISH) Disbursement_new', api_type='all', filename='test-disbursements-snapshot')
-
-#(FISH)_Draw
-write_to_file(url=url, obj='(FISH)_Draw', api_type='all', filename='test-draws-snapshot')
-
-#Loan Extension
-write_to_file(url=url, obj='Loan Extension', api_type='all', filename='test-draws-snapshot')
-
-#Loan Payoff
-write_to_file(url=url, obj='Loan Payoff', api_type='all', filename='test-payoffs-snapshot')
-
-#User
-write_to_file(url=url, obj='User', api_type='all', filename='test-payoffs-snapshot')
+#write_snapshot_files(url)
 
 #Write to Postgres
 hostname = 'ls-85eee0d2cc3d8908046ecb29cdfe4e2ddb241ebc.cktchk5fub2f.us-east-1.rds.amazonaws.com'
@@ -191,4 +263,9 @@ username = 'dbmasteruser'
 password = 'oj^2Uv|IXfE~SSS$`C6Zo:[&[1sln]_1'
 database = 'bubble-backup'
 
-#write_postgres(hostname, username, password, database, json_obj)
+json_test = [{"key1": "value1"}, {"key2": "value2"}]
+json_data = '{"response": {"cursor": 0, "results": [{"Created By": "1680707392274x494065091257994240", "Created Date": "2024-03-04T16:10:18.704Z", "Modified Date": "2024-04-03T11:37:40.503Z", "Construction Balance - not used": 0, "Net Wire Interest": 0, "Net Wire": 0, "Maturity Date": "1997-10-28T20:00:00.000Z", "Construction Draw Fund Balance": 0, "Related Companies": [], "Contacts": [], "Construction Budget": 0, "Process": "1709568619950x398411921733971900", "fish_id": 171, "Loan Team": ["1709568490060x829746049400176600"], "days_in_year": 365, "company_contact_merges": [], "Testing": false, "_id": "1709568618292x122740781183139840"}], "count": 51, "remaining": 0}}'
+
+
+#write_postgres(hostname, username, password, database, json_data)
+write_postgres_sqlalchemy(hostname, username, password, database, json_data)
