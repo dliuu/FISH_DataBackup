@@ -223,13 +223,13 @@ def write_postgres_sqlalchemy(hostname: str, username: str, password: str, datab
 
         print("Extracted data from json_list:")
         for data in results:
-            print(format_json_as_string(data))
+            print(json.dumps(data))
 
         # Insert JSON data into the 'loan' table
         for data in results:
-            #json_string = json.dumps(data)
-            processed_json_string = format_json_as_string(data)
-            loan_entry = Loan(jsonstring=processed_json_string)
+            json_string = json.dumps(data)
+            #processed_json_string = format_json_as_string(data)
+            loan_entry = Loan(jsonstring=json_string)
             session.add(loan_entry)
 
         # Commit the changes
@@ -251,7 +251,7 @@ def write_postgres_sqlalchemy(hostname: str, username: str, password: str, datab
 #Test Space
 raw_json = GET_all_objects('https://fish-platform.bubbleapps.io/version-test/api/1.1/obj', 'Loan')
 processed_json = json.dumps(raw_json)
-
+print(processed_json)
 
 #Write to File
 url = 'https://fish-platform.bubbleapps.io/version-test/api/1.1/obj'
@@ -268,4 +268,4 @@ json_data = '{"response": {"cursor": 0, "results": [{"Created By": "168070739227
 
 
 #write_postgres(hostname, username, password, database, json_data)
-write_postgres_sqlalchemy(hostname, username, password, database, json_data)
+#write_postgres_sqlalchemy(hostname, username, password, database, processed_json)
