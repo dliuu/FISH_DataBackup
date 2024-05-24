@@ -107,9 +107,14 @@ class BubbleAPI:
         # User
         self.write_to_file(obj='User', api_type='all', filename='test-payoffs-snapshot')
 
-'''
-raw_url = 'https://fish-platform.bubbleapps.io/version-test/api/1.1/obj'
+
+raw_url = 'https://ifish.tech/version-test/api/1.1/obj'
 apikey = 'ac090d3276b654b46f8dc62f52a50452'
 bubble_api = BubbleAPI(raw_url, apikey)
-bubble_api.write_snapshot_files()
-'''
+
+#test for joe
+return_json = bubble_api.GET_all_objects('(Fish) Payments')
+print(return_json)
+
+#bubble_api.write_snapshot_files()
+
