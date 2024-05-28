@@ -1,17 +1,23 @@
 import json
+import psutil
+
 from sqlalchemy import create_engine, Column, Integer, JSON, Float, String, Boolean, Numeric, Time, DateTime
 from sqlalchemy.sql import func
 from sqlalchemy.ext.declarative import declarative_base
+
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.inspection import inspect
 import datetime
 
 from bubble_api import BubbleAPI
 
+process = psutil.Process()
+
 Base = declarative_base()
 
 class Loan(Base):
     __tablename__ = 'loan_backup'
+    __table_args__ = {'extend_existing': True}
     unique_id = Column(String, primary_key=True)
     #jsonstring = Column(JSON)
 
@@ -260,7 +266,8 @@ class Loan(Base):
     modified_date = Column(DateTime(timezone=True), default=func.now())
 
 class Company(Base):
-    __tablename__ = 'loan_backup'
+    __tablename__ = 'company'
+    __table_args__ = {'extend_existing': True}
     unique_id = Column(String, primary_key=True)
 
     account_number = Column(Numeric)
@@ -310,7 +317,8 @@ class Company(Base):
     modified_date = Column(DateTime(timezone=True), default=func.now())
 
 class Funding(Base):
-    __tablename__ = 'loan_backup'
+    __tablename__ = 'funding'
+    __table_args__ = {'extend_existing': True}
     unique_id = Column(String, primary_key=True)
 
     arbitrage = Column(String)
@@ -337,11 +345,195 @@ class Funding(Base):
     created_date = Column(DateTime(timezone=True), default=func.now())
     modified_date = Column(DateTime(timezone=True), default=func.now())
 
+class Disbursement(Base):
+    __tablename__ = 'disbursement'
+    __table_args__ = {'extend_existing': True}
+    unique_id = Column(String, primary_key=True)
+
+    amount_collected = Column(Numeric)
+    disb_amount = Column(Numeric)
+    amount_owed = Column(Numeric)
+    disbursement_type = Column(String)
+    end_date = Column(DateTime(timezone=True), default=func.now())
+    funding = Column(String)
+    loan = Column(String)
+    loan_payment_parent = Column(String)
+    payment = Column(String)
+    source_record_id = Column(String)
+    start_date = Column(DateTime(timezone=True), default=func.now())
+    status = Column(String)
+    temp_amt = Column(Numeric)
+
+    created_by = Column(String)
+    created_date = Column(DateTime(timezone=True), default=func.now())
+    modified_date = Column(DateTime(timezone=True), default=func.now())
+
+class Contact(Base):
+    __tablename__ = 'contact'
+    __table_args__ = {'extend_existing': True}
+    unique_id = Column(String, primary_key=True)
+
+    three_years_experiences = Column(String)
+    account_owner = Column(String)
+    account_type = Column(String)
+    active_client = Column(Boolean)
+    active_deals = Column(Numeric)
+    additional_email_address = Column(String)
+    additional_phone_number = Column(String)
+    address_line_1 = Column(String)
+    address_line_2 = Column(String)
+    asian_races = Column(String)
+    available_funds = Column(String)
+    avatar = Column(String)
+    bdr_owner = Column(String)
+    borrower_delinquent_on_any_loans = Column(Boolean)
+    borrower_experiences = Column(String)
+    borrower_provided_credit_score = Column(String)
+    borrower_reward_tier = Column(String)
+    city = Column(String)
+    contact_disposition = Column(String)
+    contact_dispositions = Column(String)
+    contact_method_preference = Column(String)
+    contact_temp = Column(String)
+    contact_type = Column(String)
+    county = Column(Numeric)
+    credit_report_date = Column(DateTime(timezone=True), default=func.now())
+    date_of_birth = Column(DateTime(timezone=True), default=func.now())
+    demographic_info_provided_through = Column(String)
+    dynamics_id = Column(String)
+    effective_date = Column(DateTime(timezone=True), default=func.now())
+    email_address = Column(String)
+    enrolled_principle_tribe = Column(String)
+    ethnicity = Column(String)
+    ethnicity_via_observation = Column(String)
+    fax_number = Column(String)
+    fico_score = Column(Numeric)
+    first_name = Column(String)
+    fish_id = Column(String)
+    foreign_national = Column(String)
+    full_name = Column(String)
+    gender_via_observation = Column(String)
+    guarantor_address_line_1 = Column(String)
+    guarantor_address_line_2 = Column(String)
+    guarantor_address_line_3 = Column(String)
+    guarantor_contact_information = Column(String)
+    guarantor_county = Column(String)
+    guarantor_email = Column(String)
+    guarantor_first_name =  Column(String)
+    guarantor_full_address = Column(String)
+    guarantor_last_name = Column(String)
+    guarantor_phone = Column(String)
+    guarantor_state = Column(String)
+    guarantor_zip = Column(String)
+    hispanic_or_latino = Column(Boolean)
+    hubspot_id = Column(String)
+    import_contact_dispositions = Column(String)
+    islander_race = Column(String)
+    job_title = Column(String)
+    last_name = Column(String)
+    loan = Column(String)
+    loan_apps = Column(String)
+    loan_officer = Column(String)
+    loan_team = Column(String)
+    mailing_address = Column(String)
+    middle_fico = Column(String)
+    middle_name = Column(String)
+    mobile_phone_number = Column(String)
+    mortgage_lates_past_12_months = Column(Boolean)
+    number_of_borrower_experiences = Column(Numeric)
+    oafc = Column(String)
+    other_asian_race = Column(String)
+    other_islander_race = Column(String)
+    owner1 = Column(String)
+    permissions_editable_users = Column(String)
+    phone_number = Column(Numeric)
+    phone_number_1 = Column(String)
+    preferred_language = Column(String)
+    properties_fish = Column(String)
+    race = Column(String)
+    race_via_observation = Column(String)
+    related_companies = Column(String)
+    rental_projects = Column(String)
+    reward_points = Column(Numeric)
+    reward_tier = Column(String)
+    sex = Column(String)
+    ssn = Column(String)
+    state1 = Column(String)
+    statement_dates = Column(String)
+    status = Column(String)
+    total_experience = Column(String)
+    track_record_projects = Column(String)
+    validated_mailing_address = Column(Boolean)
+    validated_physical_address = Column(Boolean)
+    zip_code = Column(String)
+
+    created_by = Column(String)
+    created_date = Column(DateTime(timezone=True), default=func.now())
+    modified_date = Column(DateTime(timezone=True), default=func.now())
+
+class Payment(Base):
+    __tablename__ = 'payment'
+    __table_args__ = {'extend_existing': True}
+    unique_id = Column(String, primary_key=True)
+
+    a_amount_due = Column(Numeric)
+    a_amount_paid = Column(Numeric)
+    a_default_fee = Column(Numeric)
+    a_default_per_diem= Column(Numeric)
+    a_ending_principal= Column(Numeric)
+    a_fee_override_reason = Column(String)
+    a_payment_credit = Column(Numeric)
+    a_per_diem = Column(Numeric)
+    charged_on = Column(DateTime(timezone=True), default=func.now())
+    cleared_on = Column(DateTime(timezone=True), default=func.now())
+    date_due = Column(DateTime(timezone=True), default=func.now())
+    days_of_interest = Column(Numeric)
+    dynamics_r_loan = Column(String)
+    dynamics_u_payee = Column(String)
+    failed_on = Column(DateTime(timezone=True), default=func.now())
+    fish_id = Column(Numeric)
+    interest_rate = Column(Numeric)
+    interest_start_date = Column(DateTime(timezone=True), default=func.now())
+    late_fee= Column(Numeric)
+    r_loan = Column(String)
+    loan_application = Column(String)
+    p_customer_id = Column(String)
+    p_days_past_due = Column(Numeric)
+    p_failure_code = Column(String) 
+    p_failure_message = Column(String)
+    p_payment_method = Column(String)
+    p_scheduled_on = Column(DateTime(timezone=True), default=func.now())
+    p_source_id = Column(String)
+    p_stripe_status = Column(String)
+    paid_default_fee = Column(Numeric)
+    paid_late_fee = Column(Numeric)
+    paid_principle = Column(Numeric)
+    payee  = Column(String)
+    payment_amount = Column(Numeric)
+    payment_id1 = Column(String)
+    payment_id = Column(String)
+    payment_subtype = Column(String)
+    payment_type = Column(String)
+    payment_url = Column(String)
+    prepaid_balance_postpayment = Column(Numeric)
+    prepaid_interest = Column(Numeric)
+    price_id = Column(String)
+    principal_amount = Column(Numeric)
+    related_payment = Column(String)
+    source_record_id = Column(String)
+    status= Column(String)
+    t_other_statuses_list = Column(String)
+    
+    created_date = Column(DateTime(timezone=True), default=func.now())
+    modified_date = Column(DateTime(timezone=True), default=func.now())
+    created_by = Column(String)
+
 
 
 class InsertPostgres:
-    def __init__(self, hostname: str, username: str, password: str, database: str):
+    def __init__(self, obj:object, hostname: str, username: str, password: str, database: str):
         self.engine = create_engine(f'postgresql://{username}:{password}@{hostname}/{database}')
+        self.obj = obj
         Base.metadata.create_all(self.engine)
 
     def create_loan_dict(self, data):
@@ -360,7 +552,7 @@ class InsertPostgres:
         where empty columns are ommitted
         '''
         dict = {}
-        mapper = inspect(Loan)
+        mapper = inspect(self.obj)
         for column in mapper.attrs:
             column_name = column.key
             if column_name in data:
@@ -382,12 +574,12 @@ class InsertPostgres:
                 json_string = json.dumps(data)
                 print(json_string) #remove when needed
 
-                loan_dict = self.create_loan_dict(data) #call self.create_loan_dict
-                loan_dict['unique_id'] = data['_id'] + str(123) #sync with joe
+                validated_dict = self.create_loan_dict(data) #call self.create_loan_dict
+                validated_dict['unique_id'] = data['_id'] + str(24) #sync with joe
 
-                loan_entry = Loan(**loan_dict)
+                entry = self.obj(**validated_dict)
 
-                session.add(loan_entry)
+                session.add(entry)
 
             # Commit the changes
             session.commit()
@@ -413,8 +605,10 @@ json_list = bubble_api.GET_all_objects('Loan')
 
 processed_json = json.dumps(json_list)
 
-postgres_api = InsertPostgres(hostname, username, password, database)
-postgres_api.insert_json_data(processed_json)
+postgres_insert = InsertPostgres(Loan,hostname, username, password, database)
+postgres_insert.insert_json_data(processed_json)
+
+print(process.memory_info().rss)
 
 
 '''
