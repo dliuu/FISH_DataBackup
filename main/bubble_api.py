@@ -33,7 +33,7 @@ class BubbleAPI:
         response = r.json()
         return response
 
-    def GET_all_objects(self, obj: str, **kwargs):
+    def GET_all_objects(self, obj: str, cursor:int, **kwargs, ):
         url = f"{self.raw_url}/{obj}"
 
         if kwargs:
@@ -51,8 +51,33 @@ class BubbleAPI:
                 r = requests.get(url, headers=self.headers)
                 return r.json()
         else:
-            r = requests.get(url)
-            return r.json()
+            if cursor > 0:
+                return_json = {}
+                remaining_items = 1
+
+                while remaining_items > 0:
+
+                    r = requests.get(url= f"{url}?cursor={cursor}")
+                    data = r.json()
+
+                    if "response" in data:
+                        if len(return_json) == 0:
+                            return_json['data'] = data['response']['results']
+                        else:
+                            return_json['data'] += data['response']['results']
+
+                    if data['response']['remaining'] > 0:
+                        remaining_items = data['response']['remaining']
+                        if remaining_items >= 100:
+                            cursor+=100
+                        else:
+                            cursor+=data['response']['remaining']
+                    else:
+                        return json.dumps(return_json)
+
+            else:
+                r = requests.get(url)
+                return r.json()
 
     def write_to_file(self, obj: str, api_type: str, filename: str):
         if api_type == 'single':
@@ -113,7 +138,7 @@ apikey = 'ac090d3276b654b46f8dc62f52a50452'
 bubble_api = BubbleAPI(raw_url, apikey)
 
 #test for joe
-return_json = bubble_api.GET_all_objects('(Fish) Payments')
+return_json = bubble_api.GET_all_objects('(FISH) Payments', cursor=125)
 print(return_json)
 
 #bubble_api.write_snapshot_files()
