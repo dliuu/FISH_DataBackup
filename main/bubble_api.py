@@ -8,7 +8,7 @@ class BubbleAPI:
         self.apikey = apikey
         self.headers = {
             'Content-type': 'application/json',
-            'Authorization': f'ApiKey {apikey}',
+            'Authorization': f'Bearer {apikey}',
         }
 
     def merge_constraints(self, key_list, type_list, value_list):
@@ -33,7 +33,7 @@ class BubbleAPI:
         response = r.json()
         return response
 
-    def GET_all_objects(self, obj: str, cursor:int, **kwargs, ):
+    def GET_all_objects(self, obj: str, cursor=0, **kwargs,):
         url = f"{self.raw_url}/{obj}"
 
         if kwargs:
@@ -52,7 +52,7 @@ class BubbleAPI:
                 return r.json()
         else:
             if cursor > 0:
-                return_json = {}
+                return_json = {'response': {'results': []}}
                 remaining_items = 1
 
                 while remaining_items > 0:
@@ -61,10 +61,10 @@ class BubbleAPI:
                     data = r.json()
 
                     if "response" in data:
-                        if len(return_json) == 0:
-                            return_json['data'] = data['response']['results']
+                        if len(return_json['response']['results']) == 0:
+                            return_json['response']['results'] = data['response']['results']
                         else:
-                            return_json['data'] += data['response']['results']
+                            return_json['response']['results'] += data['response']['results']
 
                     if data['response']['remaining'] > 0:
                         remaining_items = data['response']['remaining']
@@ -134,12 +134,12 @@ class BubbleAPI:
 
 
 raw_url = 'https://ifish.tech/version-test/api/1.1/obj'
-apikey = 'ac090d3276b654b46f8dc62f52a50452'
+apikey = '6102e1e766adb69c863124ac8b059bc7'
 bubble_api = BubbleAPI(raw_url, apikey)
 
 #test for joe
-return_json = bubble_api.GET_all_objects('(FISH) Payments', cursor=125)
-print(return_json)
+#return_json = bubble_api.GET_all_objects('(FISH) Funding', cursor=1)
+#print(return_json)
 
 #bubble_api.write_snapshot_files()
 

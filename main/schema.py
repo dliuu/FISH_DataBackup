@@ -9,8 +9,6 @@ from sqlalchemy.orm import sessionmaker
 from sqlalchemy.inspection import inspect
 import datetime
 
-from bubble_api import BubbleAPI
-
 process = psutil.Process()
 
 Base = declarative_base()
@@ -19,7 +17,7 @@ class Loan(Base):
     __tablename__ = 'loan_backup'
     __table_args__ = {'extend_existing': True}
     unique_id = Column(String, primary_key=True)
-    #jsonstring = Column(JSON)
+    raw_json = Column(JSON)
 
 
     accrued_interest = Column(Numeric)
@@ -269,6 +267,7 @@ class Company(Base):
     __tablename__ = 'company'
     __table_args__ = {'extend_existing': True}
     unique_id = Column(String, primary_key=True)
+    raw_json = Column(JSON)
 
     account_number = Column(Numeric)
     address_full_text = Column(String)
@@ -276,7 +275,7 @@ class Company(Base):
     address_line_2 = Column(String)
     amendments_resolution = Column(String)
     article_of_incorporation = Column(String)
-    articles_of_organization_article_of_incorporation = Column(String)
+    articles_of_organization_article_of_corporation = Column(String)
     authorized_signor_resolution = Column(String)
     bank_address = Column(String)
     bank_forcreditto = Column(String)
@@ -320,26 +319,27 @@ class Funding(Base):
     __tablename__ = 'funding'
     __table_args__ = {'extend_existing': True}
     unique_id = Column(String, primary_key=True)
+    raw_json = Column(JSON)
 
     arbitrage = Column(String)
     archived  = Column(DateTime(timezone=True), default=func.now())
     default_fee_split = Column(Numeric)
     funded_amount = Column(Numeric)
     funded_base = Column(Numeric)
-    end_date = Column(DateTime(timezone=True), default=func.now())
-    start_date = Column(DateTime(timezone=True), default=func.now())
+    funded_end_date = Column(DateTime(timezone=True), default=func.now())
+    funded_start_date = Column(DateTime(timezone=True), default=func.now())
     interest_percent_of_total = Column(Numeric)
-    interest_rate = Column(Numeric)
+    interest_rate_split = Column(Numeric)
     investor_company = Column(String)
     investor_type = Column(String)
     late_payment_fee_split = Column(Numeric)
     loan = Column(String)
     no_of_days = Column(Numeric)
     percentage_of_loan = Column(Numeric)
-    purchase_date = Column(Numeric)
-    source_record_id =  Column (String)
+    purchase_date = Column(DateTime(timezone=True), default=func.now())
+    source_record_id =  Column(String)
     temporary = Column(DateTime(timezone=True), default=func.now())
-    dynamics_investor_company = Column(String)
+    #dynamics_investor_company = Column(String)
     z_dynamics_loan = Column(String)
     created_by = Column(String)
     created_date = Column(DateTime(timezone=True), default=func.now())
@@ -349,12 +349,14 @@ class Disbursement(Base):
     __tablename__ = 'disbursement'
     __table_args__ = {'extend_existing': True}
     unique_id = Column(String, primary_key=True)
+    raw_json = Column(JSON)
 
     amount_collected = Column(Numeric)
-    disb_amount = Column(Numeric)
+    #disb_amount = Column(Numeric)
     amount_owed = Column(Numeric)
     disbursement_type = Column(String)
     end_date = Column(DateTime(timezone=True), default=func.now())
+    fish_id = Column(Numeric)
     funding = Column(String)
     loan = Column(String)
     loan_payment_parent = Column(String)
@@ -372,6 +374,7 @@ class Contact(Base):
     __tablename__ = 'contact'
     __table_args__ = {'extend_existing': True}
     unique_id = Column(String, primary_key=True)
+    raw_json = Column(JSON)
 
     three_years_experiences = Column(String)
     account_owner = Column(String)
@@ -467,14 +470,15 @@ class Contact(Base):
     validated_physical_address = Column(Boolean)
     zip_code = Column(String)
 
-    created_by = Column(String)
-    created_date = Column(DateTime(timezone=True), default=func.now())
-    modified_date = Column(DateTime(timezone=True), default=func.now())
+    #created_by = Column(String)
+    #created_date = Column(DateTime(timezone=True), default=func.now())
+    #modified_date = Column(DateTime(timezone=True), default=func.now())
 
 class Payment(Base):
     __tablename__ = 'payment'
     __table_args__ = {'extend_existing': True}
     unique_id = Column(String, primary_key=True)
+    raw_json = Column(JSON)
 
     a_amount_due = Column(Numeric)
     a_amount_paid = Column(Numeric)
@@ -528,87 +532,6 @@ class Payment(Base):
     modified_date = Column(DateTime(timezone=True), default=func.now())
     created_by = Column(String)
 
-
-
-class InsertPostgres:
-    def __init__(self, obj:object, hostname: str, username: str, password: str, database: str):
-        self.engine = create_engine(f'postgresql://{username}:{password}@{hostname}/{database}')
-        self.obj = obj
-        Base.metadata.create_all(self.engine)
-
-    def create_loan_dict(self, data):
-        '''
-        inputs: data(str), an input json
-
-        creates a dictionary from an input json (data)
-         {
-        "_id": "123",
-        "created_by": "Alice",
-        "created_date": "2023-01-01T00:00:00",
-        "modified_date": "2023-01-02T00:00:00",
-        "product_type": "Type A",
-        "property_fish": "Property A}
-        
-        where empty columns are ommitted
-        '''
-        dict = {}
-        mapper = inspect(self.obj)
-        for column in mapper.attrs:
-            column_name = column.key
-            if column_name in data:
-                dict[column_name] = data[column_name]
-        return dict
-
-    def insert_json_data(self, json_list: str):
-        try:
-            results = json.loads(json_list)["response"]["results"]
-
-            print("Extracted data from json_list:")
-
-            # Create a session
-            Session = sessionmaker(bind=self.engine)
-            session = Session()
-
-            # Insert JSON data into the 'loan' table
-            for data in results:
-                json_string = json.dumps(data)
-                print(json_string) #remove when needed
-
-                validated_dict = self.create_loan_dict(data) #call self.create_loan_dict
-                validated_dict['unique_id'] = data['_id'] + str(24) #sync with joe
-
-                entry = self.obj(**validated_dict)
-
-                session.add(entry)
-
-            # Commit the changes
-            session.commit()
-            print("Data inserted successfully")
-
-        except Exception as error:
-            print("Error while connecting to PostgreSQL:", error)
-
-        finally:
-            session.close()
-            print("PostgreSQL connection is closed")
-
-# Example usage:
-hostname = 'ls-85eee0d2cc3d8908046ecb29cdfe4e2ddb241ebc.cktchk5fub2f.us-east-1.rds.amazonaws.com'
-username = 'dbmasteruser'
-password = 'oj^2Uv|IXfE~SSS$`C6Zo:[&[1sln]_1'
-database = 'bubble-backup'
-
-test_url = 'https://ifish.tech/version-7yyc/api/1.1/obj'
-apikey = 'ac090d3276b654b46f8dc62f52a50452'
-bubble_api = BubbleAPI(test_url, apikey)
-json_list = bubble_api.GET_all_objects('Loan')
-
-processed_json = json.dumps(json_list)
-
-postgres_insert = InsertPostgres(Loan,hostname, username, password, database)
-postgres_insert.insert_json_data(processed_json)
-
-print(process.memory_info().rss)
 
 
 '''

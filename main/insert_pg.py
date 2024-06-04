@@ -7,9 +7,9 @@ from sqlalchemy.ext.declarative import declarative_base
 
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.inspection import inspect
-import datetime
+from datetime import datetime
 
-from bubble_api import BubbleAPI
+from r_bubble_api import BubbleAPI
 from schema import Loan, Company, Funding, Disbursement, Contact, Payment
 
 process = psutil.Process()
@@ -21,6 +21,7 @@ class InsertPostgres:
         self.engine = create_engine(f'postgresql://{username}:{password}@{hostname}/{database}')
         self.obj = obj
         Base.metadata.create_all(self.engine)
+        self.Session = sessionmaker(bind=self.engine)
 
     def create_loan_dict(self, data):
         '''
@@ -37,37 +38,59 @@ class InsertPostgres:
         
         where empty columns are ommitted
         '''
-        dict = {}
+        result_dict = {}
         mapper = inspect(self.obj)
+
+        if not isinstance(data, dict):
+            raise ValueError("Create_Loan_Dict: Input data must be a dictionary")
+
+        # Transform the JSON keys: replace whitespace with '_' and lowercase all letters
+        transformed_data = {key.strip().replace(" ", "_").lower(): value for key, value in data.items()}
+
         for column in mapper.attrs:
             column_name = column.key
-            if column_name in data:
-                dict[column_name] = data[column_name]
-        return dict
+            if column_name in transformed_data:
+                result_dict[column_name] = transformed_data[column_name]
+        
+        print("Resulting dictionary:", result_dict)  # Debug print
+
+        return result_dict
 
     def insert_json_data(self, json_list: str):
-        try:
-            results = json.loads(json_list)["response"]["results"]
+        session = None
 
-            print("Extracted data from json_list:")
+        try:
+            if 'response' in json_list:
+                results = json.loads(json_list)['response']['results']
+                
+            else:
+                results = json_list
 
             # Create a session
-            Session = sessionmaker(bind=self.engine)
-            session = Session()
+            session = self.Session()
+            now = datetime.now()
 
             # Insert JSON data into the 'loan' table
             for data in results:
                 json_string = json.dumps(data)
-                print(json_string) #remove when needed
+                
+                validated_dict = self.create_loan_dict(data)
 
-                validated_dict = self.create_loan_dict(data) #call self.create_loan_dict
-                validated_dict['unique_id'] = data['_id'] + str(3523) #sync with joe
+                #formats unique_id as month day year hour_uniqueid
+                validated_dict['unique_id'] = str(now.strftime("%m%d%Y")) + str(now.strftime("%H")) + "_" + data['_id']
 
+                if session.query(self.obj).filter_by(unique_id=validated_dict['unique_id']).first():
+                    print(f"Duplicate entry found for unique_id: {validated_dict['unique_id']}, skipping insert.")
+                    continue
+
+                #throws raw json into raw_json
+                validated_dict['raw_json'] = json_string 
+                
                 entry = self.obj(**validated_dict)
-
+                
                 session.add(entry)
 
-            # Commit the changes
+            # Commit changes
             session.commit()
             print("Data inserted successfully")
 
@@ -75,23 +98,24 @@ class InsertPostgres:
             print("Error while connecting to PostgreSQL:", error)
 
         finally:
-            session.close()
-            print("PostgreSQL connection is closed")
+            if session:
+                session.close()
+                print("PostgreSQL connection is closed")
 
 #__Main__
 hostname = 'ls-85eee0d2cc3d8908046ecb29cdfe4e2ddb241ebc.cktchk5fub2f.us-east-1.rds.amazonaws.com'
 username = 'dbmasteruser'
-password = 'oj^2Uv|IXfE~SSS$`C6Zo:[&[1sln]_1'
+password = 'password'
 database = 'bubble-backup'
 
-test_url = 'https://ifish.tech/version-7yyc/api/1.1/obj'
-apikey = 'ac090d3276b654b46f8dc62f52a50452'
+test_url = 'https://ifish.tech/version-test/api/1.1/obj'
+apikey = '6102e1e766adb69c863124ac8b059bc7'
 bubble_api = BubbleAPI(test_url, apikey)
-json_list = bubble_api.GET_all_objects('Loan')
+
+json_list = bubble_api.GET_all_objects('(FISH) Disbursement_new')
 
 processed_json = json.dumps(json_list)
-
-postgres_insert = InsertPostgres(Loan,hostname, username, password, database)
+postgres_insert = InsertPostgres(Disbursement, hostname, username, password, database)
 postgres_insert.insert_json_data(processed_json)
 
 print(process.memory_info().rss)
