@@ -1,0 +1,20 @@
+CREATE TABLE disbursement (
+    unique_id VARCHAR PRIMARY KEY,
+    raw_json JSON NULL,
+    amount_collected NUMERIC NULL,
+    amount_owed NUMERIC NULL,
+    disbursement_type VARCHAR NULL,
+    end_date TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP NULL,
+    fish_id NUMERIC NULL,
+    funding VARCHAR NULL,
+    loan VARCHAR NULL,
+    loan_payment_parent VARCHAR NULL,
+    payment VARCHAR NULL,
+    source_record_id VARCHAR NULL,
+    start_date TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP NULL,
+    status VARCHAR NULL,
+    temp_amt NUMERIC NULL,
+    created_by VARCHAR NULL,
+    created_date TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP NULL,
+    modified_date TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP NULL
+);

@@ -10,7 +10,7 @@ from sqlalchemy.inspection import inspect
 from datetime import datetime
 
 from r_bubble_api import BubbleAPI
-from schema import Loan, Company, Funding, Disbursement, Contact, Payment
+from schema import Loan, Company, Funding, Disbursement, Contact, Payment, Loan_Application
 
 process = psutil.Process()
 Base = declarative_base()
@@ -20,6 +20,12 @@ class InsertPostgres:
     def __init__(self, obj:object, hostname: str, username: str, password: str, database: str):
         self.engine = create_engine(f'postgresql://{username}:{password}@{hostname}/{database}')
         self.obj = obj
+
+        self.hostname = hostname
+        self.username = username
+        self.password = password
+        self.database = database
+
         Base.metadata.create_all(self.engine)
         self.Session = sessionmaker(bind=self.engine)
 
@@ -56,7 +62,7 @@ class InsertPostgres:
 
         return result_dict
 
-    def insert_json_data(self, json_list: str):
+    def insert_data(self, json_list: str):
         session = None
 
         try:
@@ -102,20 +108,52 @@ class InsertPostgres:
                 session.close()
                 print("PostgreSQL connection is closed")
 
+    def insert_table(self, url:str, apikey:str, bubble_table:str, schema:object):
+        bubble_api = BubbleAPI(url, apikey)
+
+        json_list = bubble_api.GET_all_objects(bubble_table)
+        str_json = json.dumps(json_list)
+
+        self.insert_data(str_json)
+
 #__Main__
+
 hostname = 'ls-85eee0d2cc3d8908046ecb29cdfe4e2ddb241ebc.cktchk5fub2f.us-east-1.rds.amazonaws.com'
 username = 'dbmasteruser'
-password = 'password'
+password = 'P#7N12nj!qRwlZTDt>XeQ_ODbd2,}QvS'
 database = 'bubble-backup'
 
 test_url = 'https://ifish.tech/version-test/api/1.1/obj'
-apikey = '6102e1e766adb69c863124ac8b059bc7'
+apikey = '3d83175353e3af62cc0d4dd5c167a855'
+
+#instance = InsertPostgres(Loan_Application, hostname, username, password, database)
+#instance.insert_table(test_url, apikey, 'Loan Application', Loan_Application)
+
+#instance = InsertPostgres(Loan, hostname, username, password, database)
+#instance.insert_table(test_url, apikey, 'Loan', Loan)
+
+#instance = InsertPostgres(Payment, hostname, username, password, database)
+#instance.insert_table(test_url, apikey, '(FISH) Payments', Payment)
+
+instance = InsertPostgres(Funding, hostname, username, password, database)
+instance.insert_table(test_url, apikey, '(FISH) Funding', Funding)
+
+#instance = InsertPostgres(Company, hostname, username, password, database)
+#instance.insert_table(test_url, apikey, '(FISH) Company', Company)
+
+#instance = InsertPostgres(Disbursement, hostname, username, password, database)
+#instance.insert_table(test_url, apikey, '(FISH) Disbursement_new', Disbursement)
+
+
+'''
 bubble_api = BubbleAPI(test_url, apikey)
 
-json_list = bubble_api.GET_all_objects('(FISH) Disbursement_new')
+json_list = bubble_api.GET_all_objects('Loan Application')
 
 processed_json = json.dumps(json_list)
-postgres_insert = InsertPostgres(Disbursement, hostname, username, password, database)
+postgres_insert = InsertPostgres(Loan_Application, hostname, username, password, database)
 postgres_insert.insert_json_data(processed_json)
+'''
 
-print(process.memory_info().rss)
+
+print("Total Memory Used: " + str(process.memory_info().rss))

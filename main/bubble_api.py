@@ -76,8 +76,9 @@ class BubbleAPI:
                         return json.dumps(return_json)
 
             else:
-                r = requests.get(url)
+                r = requests.get(url, headers=self.headers)
                 return r.json()
+    
 
     def write_to_file(self, obj: str, api_type: str, filename: str):
         if api_type == 'single':
@@ -134,12 +135,12 @@ class BubbleAPI:
 
 
 raw_url = 'https://ifish.tech/version-test/api/1.1/obj'
-apikey = '6102e1e766adb69c863124ac8b059bc7'
+apikey = '3d83175353e3af62cc0d4dd5c167a855'
 bubble_api = BubbleAPI(raw_url, apikey)
 
 #test for joe
-#return_json = bubble_api.GET_all_objects('(FISH) Funding', cursor=1)
-#print(return_json)
+return_json = bubble_api.GET_all_objects('(FISH) Funding')
+print(return_json)
 
 #bubble_api.write_snapshot_files()
 
