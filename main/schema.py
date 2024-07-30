@@ -14,7 +14,7 @@ process = psutil.Process()
 Base = declarative_base()
 
 class Loan(Base):
-    __tablename__ = 'loan_backup'
+    __tablename__ = 'loan'
     __table_args__ = {'extend_existing': True}
     unique_id = Column(String, primary_key=True)
     raw_json = Column(JSON)
@@ -758,12 +758,6 @@ class Loan_Application(Base):
     created_date = Column(DateTime(timezone=True), default=func.now())
     modified_date = Column(DateTime(timezone=True), default=func.now())
     created_by = Column(String)
-
-from sqlalchemy import Column, String, DateTime, Numeric, Boolean, create_engine, func
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import sessionmaker
-
-Base = declarative_base()
 
 class Reporting(Base):
     __tablename__ = 'reporting'

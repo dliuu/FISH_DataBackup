@@ -96,8 +96,8 @@ class BubbleAPI:
 
 
 # Example usage:
-raw_url = 'https://ifish.tech/version-test/api/1.1/obj'
-apikey = '6102e1e766adb69c863124ac8b059bc7'
+raw_url = 'https://ifish.tech/api/1.1/obj'
+apikey = '3d83175353e3af62cc0d4dd5c167a855'
 bubble_api = BubbleAPI(raw_url, apikey)
 
 # Uncomment to test fetching and writing snapshot files

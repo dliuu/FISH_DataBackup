@@ -123,26 +123,38 @@ username = 'dbmasteruser'
 password = 'P#7N12nj!qRwlZTDt>XeQ_ODbd2,}QvS'
 database = 'bubble-backup'
 
-test_url = 'https://ifish.tech/version-test/api/1.1/obj'
+test_url = 'https://ifish.tech/api/1.1/obj'
 apikey = '3d83175353e3af62cc0d4dd5c167a855'
 
-#instance = InsertPostgres(Loan_Application, hostname, username, password, database)
-#instance.insert_table(test_url, apikey, 'Loan Application', Loan_Application)
+instance = InsertPostgres(Loan_Application, hostname, username, password, database)
+instance.insert_table(test_url, apikey, 'Loan Application', Loan_Application)
 
-#instance = InsertPostgres(Loan, hostname, username, password, database)
-#instance.insert_table(test_url, apikey, 'Loan', Loan)
+print('Finished: Loan Application')
 
-#instance = InsertPostgres(Payment, hostname, username, password, database)
-#instance.insert_table(test_url, apikey, '(FISH) Payments', Payment)
+instance = InsertPostgres(Loan, hostname, username, password, database)
+instance.insert_table(test_url, apikey, 'Loan', Loan)
+
+print('Finished: Loan')
+
+instance = InsertPostgres(Payment, hostname, username, password, database)
+instance.insert_table(test_url, apikey, '(FISH) Payments', Payment)
+
+print('Finished: Payment')
 
 instance = InsertPostgres(Funding, hostname, username, password, database)
 instance.insert_table(test_url, apikey, '(FISH) Funding', Funding)
 
-#instance = InsertPostgres(Company, hostname, username, password, database)
-#instance.insert_table(test_url, apikey, '(FISH) Company', Company)
+print('Finished: Funding')
 
-#instance = InsertPostgres(Disbursement, hostname, username, password, database)
-#instance.insert_table(test_url, apikey, '(FISH) Disbursement_new', Disbursement)
+instance = InsertPostgres(Company, hostname, username, password, database)
+instance.insert_table(test_url, apikey, '(FISH) Company', Company)
+
+print('Finished: Company')
+
+instance = InsertPostgres(Disbursement, hostname, username, password, database)
+instance.insert_table(test_url, apikey, '(FISH) Disbursement_new', Disbursement)
+
+print('Finished: Disbursement')
 
 
 '''
