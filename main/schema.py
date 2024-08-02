@@ -14,7 +14,7 @@ process = psutil.Process()
 Base = declarative_base()
 
 class Loan(Base):
-    __tablename__ = 'loan'
+    __tablename__ = 'loan_backup'
     __table_args__ = {'extend_existing': True}
     unique_id = Column(String, primary_key=True)
     raw_json = Column(JSON)
