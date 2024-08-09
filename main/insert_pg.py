@@ -1,11 +1,12 @@
 import json
 import psutil
+import re
 
 from sqlalchemy import create_engine, Column, Integer, JSON, Float, String, Boolean, Numeric, Time, DateTime
 from sqlalchemy.sql import func
-from sqlalchemy.ext.declarative import declarative_base
+#from sqlalchemy.ext.declarative import declarative_base
 
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy.orm import sessionmaker, declarative_base
 from sqlalchemy.inspection import inspect
 from datetime import datetime
 
@@ -97,6 +98,7 @@ class InsertPostgres:
                 session.add(entry)
 
             # Commit changes
+            
             session.commit()
             print("Data inserted successfully")
 
@@ -108,7 +110,8 @@ class InsertPostgres:
                 session.close()
                 print("PostgreSQL connection is closed")
 
-    def insert_table(self, url:str, apikey:str, bubble_table:str, schema:object):
+    def insert_table(self, url:str, apikey:str, bubble_table:str):
+        #schema:obj param is not needed we can use self.obj instead
         bubble_api = BubbleAPI(url, apikey)
 
         json_list = bubble_api.GET_all_objects(bubble_table)
@@ -126,6 +129,37 @@ database = 'bubble-backup'
 test_url = 'https://ifish.tech/api/1.1/obj'
 apikey = '3d83175353e3af62cc0d4dd5c167a855'
 
+fish_tables = {
+    Loan_Application: 'Loan Application',
+    Loan: 'Loan',
+    Payment: '(FISH) Payments',
+    Funding: '(FISH) Funding',
+    Company: '(FISH) Company',
+    Disbursement: '(FISH) Disbursement_new'
+}
+error =[]
+for k in fish_tables.keys():
+    table_name = re.sub(r'schema\.', '', re.search(r"(?<=')[^']+'", str(k)).group().rstrip("'"))
+    try:
+        InsertPostgres(
+                k, 
+                hostname, 
+                username, 
+                password, 
+                database
+                ).insert_table(
+                    test_url,
+                    apikey,
+                    fish_tables[k]
+                )
+        print(f'Finished: {table_name}')
+    except:
+        error.append(table_name)
+        
+print("Total Memory Used: " + str(process.memory_info().rss))
+if len(error) > 0:
+    print(error)
+'''
 instance = InsertPostgres(Loan_Application, hostname, username, password, database)
 instance.insert_table(test_url, apikey, 'Loan Application', Loan_Application)
 
@@ -155,7 +189,7 @@ instance = InsertPostgres(Disbursement, hostname, username, password, database)
 instance.insert_table(test_url, apikey, '(FISH) Disbursement_new', Disbursement)
 
 print('Finished: Disbursement')
-
+'''
 
 '''
 bubble_api = BubbleAPI(test_url, apikey)
@@ -168,4 +202,3 @@ postgres_insert.insert_json_data(processed_json)
 '''
 
 
-print("Total Memory Used: " + str(process.memory_info().rss))
