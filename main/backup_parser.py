@@ -112,4 +112,4 @@ for t in tables:
             '<div style="margin-bottom: 15px;"></div>'
     ])
 
-print(email_body)
+send_email(email_body)
