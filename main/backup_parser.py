@@ -38,7 +38,7 @@ for t in tables_raw:
 table_mapping = {
     'Company': ['(fish)company', 'company'],
     'Disbursement':[ '(fish)disbursement_new', 'disbursement'],
-    'Loan_Application': ['loanapplication', 'loan_application'],
+    'Loan_Application': ['loan_application', 'loan_application'],
     'Loan': ['loan', 'loan_backup'],
     'Payment': ['(fish)payments', 'payment'],
     'Funding': ['(fish)funding', 'funding']
