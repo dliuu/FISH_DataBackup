@@ -9,14 +9,14 @@ import smtplib
 tables = []
 email_body = ''
 with open('output.txt', 'r') as f:
-	line = re.sub('Duplicate entry[^\n]+\n', '', f.read(), re.MULTILINE)
+    line = re.sub('Duplicate entry[^\n]+\n', '', f.read(), re.MULTILINE)
 
 if not line:
     email_body = '<div>bubble database backup failed to run. Please check</div>'
 elif 'Data inserted successfully' not in line:
     email_body = '<div>bubble database backup ran with error. Please check</div>'
 else:
-    tables = [re.sub('Finished: ', '', t.strip('\n')) for t in re.findall('(Finished:[^\n]+\n)', line)]
+    tables = [re.sub('Finished: ', '', t.strip('\n')) for t in re.findall('(Finished:.+\n)', line)]
 
 '''
 #length of table_data should always be an even number
@@ -36,8 +36,12 @@ for t in tables_raw:
     tables[table_name] = [re.sub(r"[':\s]", '', c) for c in list(tables[table_name])]
 '''
 table_mapping = {
-    'Company': '(fish)company',
-    'Disbursement': '(fish)disbursement_new'
+    'Company': ['(fish)company', 'company'],
+    'Disbursement':[ '(fish)disbursement_new', 'disbursement'],
+    'Loan_Application': ['loanapplication', 'loan_application'],
+    'Loan': ['loan', 'loan_backup'],
+    'Payment': ['(fish)payments', 'payment'],
+    'Funding': ['(fish)funding', 'funding']
 }
 
 def send_email(msg):
@@ -66,7 +70,7 @@ def retrieve_pg_schema(table):
         host='ls-85eee0d2cc3d8908046ecb29cdfe4e2ddb241ebc.cktchk5fub2f.us-east-1.rds.amazonaws.com', 
         port='5432')
     
-    query = f"select column_name from information_schema.columns where table_schema = 'public' and table_name = '{table.lower()}'"
+    query = f"select column_name from information_schema.columns where table_schema = 'public' and table_name = '{table_mapping[table][1]}'"
     cursor = connection.cursor()
     cursor.execute(query)
     rows = cursor.fetchall()
@@ -78,30 +82,34 @@ def retrieve_bubble_schema(table_name):
     URL = 'https://ifish.tech/api/1.1/meta'
     res = requests.get(URL, headers)
     feedback = json.loads(res.text)['types']
-    return [r for r in feedback[table_name]['fields']]
+    return [r for r in feedback[table_mapping[table_name][0]]['fields']]
 
 def convert_colname(col):
     return re.sub('_+', '_', re.sub('\s+', '_', re.sub(r'[%/\-\(\){}&]', ' ', col.lower().strip()))).strip('_')
 
 for t in tables:
-    bubble_cols = [(c['display'], convert_colname(c['display']), c['type']) for c in retrieve_bubble_schema(table_mapping[t])]
+    bubble_cols = [(c['display'], convert_colname(c['display']), c['type']) for c in retrieve_bubble_schema(t)]
     
-    if t.lower() == 'loan': t='loan_backup'
     pg_cols = [c for c in retrieve_pg_schema(t)]
     
     added_columns = [col[0] for col in bubble_cols if not col[1] in pg_cols]
     removed_columns = [col for col in pg_cols if not col in [v[1] for v in bubble_cols]]
     
     if len(added_columns) == 0 and len(removed_columns) == 0:
-        email_body = email_body + '<div>No schema changed detected in table ' + table_mapping[t] + '</div>'
+        email_body = email_body + '<div>No schema changed detected in table ' + table_mapping[t][1] + '</div>'
     else:
         email_body = email_body + ''.join([
-            '<div style="width: 500px"><span>Table: ' + table_mapping[t] + '</span><span style="margin-left: 10px">' + t + '</span></div>',
-            '<div style="width: 200px"><span style="width: 100%; color: gray;">columns in bubble but not in pg</span></div>',
-            '<table style="width: 500px; margin-left: 20px; margin-bottom: 10px;"><tbody>' + ''.join(['<tr><td>'+convert_colname(c)+'</td></tr>' for c in added_columns])+'</tbody></table>'
-            '<div style="width: 200px"><span style="width: 100%; color: gray;">columns in pg but not in bubble</span></div>',
-            '<table style="width: 500px; margin-left: 20px; margin-bottom: 10px;"><tbody>' + ''.join(['<tr><td>'+c+'</td></tr>' for c in removed_columns])+'</tbody></table>'
-        ])
-    
+            '<div style="width: 600px; display: flex;">',
+            '<div style="width:50%">',
+            '<div>bubble table: '+ table_mapping[t][0]+'</div>',
+            ''.join(['<div>'+convert_colname(c)+'</div>' for c in added_columns]),
+            '</div>',
+            '<div style="width:50%">',
+            '<div>bubble table: '+ table_mapping[t][1]+'</div>',
+            ''.join(['<div>'+c+'</div>' for c in removed_columns]),
+            '</div>',
+            '</div>',
+            '<div style="margin-bottom: 15px;"></div>'
+    ])
 
-send_email(email_body)  
+print(email_body)
