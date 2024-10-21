@@ -46,7 +46,7 @@ table_mapping = {
 }
 
 def send_email(msg):
-    recipient = 'tdewiler@wcp.team'
+    recipient = 'tdetwiler@wcp.team'
     subject = 'Daily bubble-backup report'
     sender = 'xzhao@wcp.team'
     sender_password = 'Joe#4865@wcp'
