@@ -5,6 +5,7 @@ import json
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 import smtplib
+import itertools
 
 tables = []
 email_body = ''
@@ -45,7 +46,7 @@ table_mapping = {
 }
 
 def send_email(msg):
-    recipient = 'tdetwiler@wcp.team'
+    recipient = 'tdewiler@wcp.team'
     subject = 'Daily bubble-backup report'
     sender = 'xzhao@wcp.team'
     sender_password = 'Joe#4865@wcp'
@@ -77,19 +78,20 @@ def retrieve_pg_schema(table):
     
     return [r[0] for r in rows]
 
-def retrieve_bubble_schema(table_name):
+def retrieve_bubble_schema():
     headers = {'Content-Type': 'application/json', 'Accept':'application/json'}
     URL = 'https://ifish.tech/api/1.1/meta'
     res = requests.get(URL, headers)
-    feedback = json.loads(res.text)['types']
-    return [r for r in feedback[table_mapping[table_name][0]]['fields']]
+    return json.loads(res.text)['types']
+    #return [r for r in feedback[table_mapping[table_name][0]]['fields']]
 
 def convert_colname(col):
     return re.sub('_+', '_', re.sub('\s+', '_', re.sub(r'[%/\-\(\){}&]', ' ', col.lower().strip()))).strip('_')
 
+feedback = retrieve_bubble_schema()
+
 for t in tables:
-    bubble_cols = [(c['display'], convert_colname(c['display']), c['type']) for c in retrieve_bubble_schema(t)]
-    
+    bubble_cols = [(c['display'], convert_colname(c['display']), c['type']) for c in [r for r in feedback[table_mapping[t][0]]['fields']]]
     pg_cols = [c for c in retrieve_pg_schema(t)]
     
     added_columns = [col[0] for col in bubble_cols if not col[1] in pg_cols]
@@ -98,18 +100,13 @@ for t in tables:
     if len(added_columns) == 0 and len(removed_columns) == 0:
         email_body = email_body + '<div>No schema changed detected in table ' + table_mapping[t][1] + '</div>'
     else:
+        cols = list(itertools.zip_longest(added_columns, removed_columns, fillvalue=''))
         email_body = email_body + ''.join([
-            '<div style="width: 600px; display: flex;">',
-            '<div style="width:50%">',
-            '<div>bubble table: '+ table_mapping[t][0]+'</div>',
-            ''.join(['<div>'+convert_colname(c)+'</div>' for c in added_columns]),
-            '</div>',
-            '<div style="width:50%">',
-            '<div>bubble table: '+ table_mapping[t][1]+'</div>',
-            ''.join(['<div>'+c+'</div>' for c in removed_columns]),
-            '</div>',
-            '</div>',
-            '<div style="margin-bottom: 15px;"></div>'
-    ])
+            '<table style="width: 600px"><thead><tr><th style="text-align: left; width: 300px">bubble table: ',
+            table_mapping[t][0], '</th><th style="text-align: left; width: 300px">pg table: ',
+            table_mapping[t][1], '</th></tr></thead><tbody>',
+            ''.join(['<tr><td>'+col[0]+'</td><td>'+col[1]+'</td></tr>' for col in cols]),
+            '</tbody></table>'
+        ])       
 
 send_email(email_body)
